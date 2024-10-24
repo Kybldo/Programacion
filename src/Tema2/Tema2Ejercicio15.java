@@ -27,10 +27,13 @@ public class Tema2Ejercicio15 {
         System.out.println("Introduce el número del año:");
         int ano = read.nextInt();
 
+
+        //Se determina si el año es bisiesto.
         if (ano % 4 == 0){
             bisiesto = true;
         }
 
+        //Se determina el número de días del mes dependiendo de si el año es bisiesto o no.
         if (bisiesto){
             if (mes == 2){
                 dias = 29;
@@ -41,7 +44,7 @@ public class Tema2Ejercicio15 {
             dias = 31;
         } else dias = 30;
 
-
+        //Se muestran los resultados.
         System.out.println("El mes tendrá " + dias + " días.");
 
         read.close();
