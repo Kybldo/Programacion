@@ -8,6 +8,7 @@ public class Tema2Ejercicio25 {
 
         Scanner read = new Scanner(System.in);
 
+        //Declara el int para futuros cálculos.
         int fact = 1;
 
         //Se lee el entero.
