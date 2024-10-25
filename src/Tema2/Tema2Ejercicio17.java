@@ -12,10 +12,10 @@ public class Tema2Ejercicio17 {
         System.out.println("Introduce '0' para calcular la superficie y el perímetro de un cuadrado," +
                 " '1' para calcular la superficie y el perímetro de un rectángulo," +
                 "o '2' para calcular la superficie de un triángulo.");
-        String tipo = read.nextLine();
+        int tipo = read.nextInt();
 
         switch (tipo){
-            case "0" -> {
+            case 0 -> {
 
                 //Se ejecuta la rama del cuadrado.
                 //Se pide el lado.
@@ -30,7 +30,7 @@ public class Tema2Ejercicio17 {
                 //Se muestra el resultado.
                 System.out.println("La superficie es " + areaC + ", y el perímetro es " + periC);
             }
-            case "1" -> {
+            case 1 -> {
 
                 //Se ejecuta la rama del rectángulo.
                 //Se piden los dos lados.
@@ -48,7 +48,7 @@ public class Tema2Ejercicio17 {
                 //Se muestra el resultado.
                 System.out.println("La superficie es " + areaR + ", y el perímetro es " + periR);
             }
-            case "2" -> {
+            case 2 -> {
 
                 //Se ejecuta la rama del triángulo.
                 //Se piden la base y la altura.
@@ -64,7 +64,7 @@ public class Tema2Ejercicio17 {
                 //Se muestra el resultado.
                 System.out.println("La superficie es " + areaT);
             }
-            case null, default -> System.out.println("Se ha producido un error. Introduce un número válido.");
+            default -> System.out.println("Se ha producido un error. Introduce un número válido.");
         }
 
         read.close();

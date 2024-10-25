@@ -29,7 +29,7 @@ public class Tema2Ejercicio15 {
 
 
         //Se determina si el año es bisiesto.
-        if (ano % 4 == 0){
+        if (ano % 4 == 0 && ano % 100 != 0 || ano % 400 == 0){
             bisiesto = true;
         }
 
