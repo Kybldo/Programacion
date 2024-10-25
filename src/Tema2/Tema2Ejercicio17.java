@@ -9,44 +9,62 @@ public class Tema2Ejercicio17 {
         Scanner read = new Scanner(System.in);
 
         //Se pide el tipo de conversor que se quiere utilizar.
-        System.out.println("Introduce 'D' para calcular Dólares a Euros, o 'E' para calcular Euros a Dólares:");
-        int tipo = read.nextInt();
+        System.out.println("Introduce '0' para calcular la superficie y el perímetro de un cuadrado," +
+                " '1' para calcular la superficie y el perímetro de un rectángulo," +
+                "o '2' para calcular la superficie de un triángulo.");
+        String tipo = read.nextLine();
 
         switch (tipo){
-            case 0 -> {
-                //Se pide la cantidad en euros.
-                System.out.println("Introduce una cantidad en euros:");
-                int num = read.nextInt();
+            case "0" -> {
 
-                //Se pasa de euros a dólares.
-                double dollar = num * 1.08;
+                //Se ejecuta la rama del cuadrado.
+                //Se pide el lado.
+                System.out.println("Introduce el lado de un cuadrado:");
+                int ladoC = read.nextInt();
 
-                //Mostramos el resultado.
-                System.out.println("La cantidad equivale a " + dollar + " dólares.");
+                //Se calculan superficie y perímetro.
+                int areaC = ladoC * ladoC;
+
+                int periC = ladoC + ladoC + ladoC + ladoC;
+
+                //Se muestra el resultado.
+                System.out.println("La superficie es " + areaC + ", y el perímetro es " + periC);
             }
-            case 1 -> {
-                //Se pide la cantidad en dólares.
-                System.out.println("Introduce una cantidad en dólares:");
-                int num = read.nextInt();
+            case "1" -> {
 
-                //Se pasa de dólares a euros.
-                double euro = num * 0.93;
+                //Se ejecuta la rama del rectángulo.
+                //Se piden los dos lados.
+                System.out.println("Introduce el primer lado de un rectángulo:");
+                int ladoR1 = read.nextInt();
 
-                //Mostramos el resultado.
-                System.out.println("La cantidad equivale a " + euro + " euros.");
+                System.out.println("Introduce el segundo lado de un rectángulo:");
+                int ladoR2 = read.nextInt();
+
+                //Se calculan superficie y perímetro.
+                int areaR = ladoR1 * ladoR2;
+
+                int periR = ladoR1 + ladoR1 + ladoR2 + ladoR2;
+
+                //Se muestra el resultado.
+                System.out.println("La superficie es " + areaR + ", y el perímetro es " + periR);
             }
-            case 2 -> {
-                //Se pide la cantidad en dólares.
-                System.out.println("Introduce una cantidad en dólares:");
-                int num = read.nextInt();
+            case "2" -> {
 
-                //Se pasa de dólares a euros.
-                double euro = num * 0.93;
+                //Se ejecuta la rama del triángulo.
+                //Se piden la base y la altura.
+                System.out.println("Introduce la base de un triángulo:");
+                int baseT = read.nextInt();
 
-                //Mostramos el resultado.
-                System.out.println("La cantidad equivale a " + euro + " euros.");
+                System.out.println("Introduce la altura de un triángulo:");
+                int alturaT = read.nextInt();
+
+                //Se calcula la superficie.
+                int areaT = (baseT * alturaT) / 2;
+
+                //Se muestra el resultado.
+                System.out.println("La superficie es " + areaT);
             }
-
+            case null, default -> System.out.println("Se ha producido un error. Introduce un número válido.");
         }
 
         read.close();
