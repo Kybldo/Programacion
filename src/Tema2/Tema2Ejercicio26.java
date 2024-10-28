@@ -8,14 +8,15 @@ public class Tema2Ejercicio26 {
 
         Scanner read = new Scanner(System.in);
 
-        int calc = 0;
+        int calc;
         boolean noPrimo = false;
 
         //Se lee el entero.
         System.out.println("Introduce un número entero:");
         int num = read.nextInt();
 
-        for (int i = num; i >= 0; i--){
+        //Se comprueba si el número es o no primo.
+        for (int i = 2; i < num; i++){
             calc = num % i;
 
             if (calc == 0){
@@ -23,6 +24,7 @@ public class Tema2Ejercicio26 {
             }
         }
 
+        //Se muestra el resultado.
         if (noPrimo){
             System.out.println("No primo");
         } else System.out.println("Primo");
