@@ -5,9 +5,9 @@ public class Tema2Ejercicio27 {
     public static void main(String[] args){
 
         //Se inicializan las variables para contadores y cálculos.
-        int calc = 0;
+        int calc;
         int count = 0;
-        boolean primo = true;
+        boolean primo;
         int num = 1;
 
         //El bucle imprimirá 20 números.
