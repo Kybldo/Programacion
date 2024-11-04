@@ -1,30 +1,33 @@
 package Tema2;
 
-import java.util.Scanner;
-
 public class Tema2Ejercicio27 {
 
     public static void main(String[] args){
 
-        Scanner read = new Scanner(System.in);
-
+        //Se inicializan las variables para contadores y cálculos.
         int calc = 0;
         int count = 0;
-        boolean noPrimo = false;
+        boolean primo = true;
+        int num = 1;
 
-        int num = 0;
-
-        while (count <= 20){
+        //El bucle imprimirá 20 números.
+        while (count < 20){
 
             num++;
 
-            noPrimo = false;
+            primo = false;
 
-            calc = num % 2;
+            //Se comprueba si el número es o no primo.
+            for (int i = 2; i < num; i++){
+                calc = num % i;
 
-            if (calc == 0){
-                noPrimo = true;
-            } else if (!noPrimo) {
+                if (calc == 0){
+                    primo = true;
+                }
+            }
+
+            //Se muestra el resultado.
+            if (!primo){
                 System.out.println(num);
                 count++;
             }
