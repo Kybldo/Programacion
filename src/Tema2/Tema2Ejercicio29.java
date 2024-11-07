@@ -25,7 +25,7 @@ public class Tema2Ejercicio29 {
                 System.out.println("El número es menor.");
             } else System.out.println("El número es mayor.");
 
-            System.out.println("Adivina un número del 1 al 100:");
+            System.out.println("Prueba con otro número:");
             num = read.nextInt();
         }
 

@@ -17,7 +17,7 @@ public class Tema2Ejercicio28 {
         //Se genera el número de lotería.
         int numLoteria = random.nextInt(99999);
 
-        while (count < 4){
+        while (count <= 4){
             //Se lee el número de lotería por parte del usuario.
             System.out.println("Introduce un número de lotería:");
             int numUsuario = read.nextInt();
