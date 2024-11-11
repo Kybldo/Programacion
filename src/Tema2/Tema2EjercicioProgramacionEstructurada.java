@@ -42,6 +42,8 @@ public class Tema2EjercicioProgramacionEstructurada {
 
         int p1_pity = 0;
         double p1_channeling = 1;
+        int p1_counter = 0;
+        int p1_counterRoll = 0;
 
         //Atributos y cálculos de ataque del primer jugador.
         int p1_attackCalc = 0;
@@ -64,6 +66,8 @@ public class Tema2EjercicioProgramacionEstructurada {
 
         int p2_pity = 0;
         double p2_channeling = 1;
+        int p2_counter = 0;
+        int p2_counterRoll = 0;
 
         //Atributos y cálculos de ataque del segundo jugador.
         int p2_attackCalc = 0;
@@ -553,7 +557,7 @@ public class Tema2EjercicioProgramacionEstructurada {
 
                 case 1 -> {
                     System.out.println("Jugador 1" + " (" + p1_className + ")" + " - Elige una acción:");
-                    System.out.println("1. Ataque | 2. Regenerar | 3. Pedir Perdón | 4. Canalizar");
+                    System.out.println("1. Ataque | 2. Regenerar | 3. Pedir Perdón | 4. Canalizar | 5. Reflejar");
                     System.out.println(" ");
 
                     choice_p1 = read.nextInt();
@@ -567,7 +571,7 @@ public class Tema2EjercicioProgramacionEstructurada {
 
                             p1_attackRoll = roll.nextInt(1, 4);
 
-                            p1_attackCalc = (int) (((p1_attack * p1_attackChance * 3 * p1_channeling) * p1_attackRoll) / (p2_defense * p2_defenseChance));
+                            p1_attackCalc = (int) (((p1_attack * p1_attackChance * 3 * p1_channeling) * p1_attackRoll) / (p2_defense * p2_defenseChance) + p1_counter);
 
                             System.out.println("""
 
@@ -585,6 +589,7 @@ public class Tema2EjercicioProgramacionEstructurada {
                                     ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀""");
 
                             if (p1_channeling == 2) System.out.println("¡Golpe canalizado!");
+                            if (p1_counter > 0) System.out.println("¡Golpe reflejado!");
 
                             if (p1_attackRoll == 3){
                                 System.out.println("¡Golpe Súper Crítico!");
@@ -596,6 +601,7 @@ public class Tema2EjercicioProgramacionEstructurada {
                             p2_health -= p1_attackCalc;
 
                             p1_channeling = 1;
+                            p1_counter = 0;
 
                             if (p1_health < 0) p1_health = 0;
                             if (p2_health < 0) p2_health = 0;
@@ -696,6 +702,41 @@ public class Tema2EjercicioProgramacionEstructurada {
 
                         }
 
+                        case 5 -> {
+
+                            if (p2_attackCalc == 0){
+
+                                System.out.println("El enemigo todavía no te ha atacado. No has podido absorber.");
+                                System.out.println(" ");
+
+                            } else {
+
+                                p1_counterRoll = roll.nextInt(1, 3);
+
+                                if (p1_counterRoll == 2){
+
+                                    System.out.println("¡Has absorbido la potencia del ataque de tu enemigo!");
+                                    System.out.println("Tu siguiente ataque será más poderoso.");
+                                    System.out.println(" ");
+
+                                    p1_counter = p2_attackCalc;
+
+                                } else {
+
+                                    System.out.println("¡Tu reflejo ha fallado!");
+                                    System.out.println("Has recibido " + p2_attackCalc / 2 + " puntos de daño adicionales.");
+                                    System.out.println(" ");
+
+                                    p1_health -= p2_attackCalc / 2;
+
+                                    if (p1_health < 0) p1_health = 0;
+
+                                }
+
+                            }
+
+                        }
+
                         default -> {
 
                             System.out.println(" ");
@@ -730,7 +771,7 @@ public class Tema2EjercicioProgramacionEstructurada {
                 case 2 -> {
 
                     System.out.println("Jugador 2" + " (" + p2_className + ")" + " - Elige una acción:");
-                    System.out.println("1. Ataque | 2. Regenerar | 3. Pedir Perdón | 4. Canalizar");
+                    System.out.println("1. Ataque | 2. Regenerar | 3. Pedir Perdón | 4. Canalizar | 5. Reflejar");
                     System.out.println(" ");
 
                     choice_p2 = read.nextInt();
@@ -744,7 +785,7 @@ public class Tema2EjercicioProgramacionEstructurada {
 
                             p2_attackRoll = roll.nextInt(1, 4);
 
-                            p2_attackCalc = (int) (((p2_attack * p2_attackChance * 3 * p2_channeling) * p2_attackRoll) / (p1_defense * p1_defenseChance));
+                            p2_attackCalc = (int) (((p2_attack * p2_attackChance * 3 * p2_channeling) * p2_attackRoll) / (p1_defense * p1_defenseChance) + p2_counter);
 
 
                             System.out.println("""
@@ -763,6 +804,7 @@ public class Tema2EjercicioProgramacionEstructurada {
                                     ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀""");
 
                             if (p2_channeling == 2) System.out.println("¡Golpe canalizado!");
+                            if (p2_counter > 0) System.out.println("¡Golpe reflejado!");
 
                             if (p2_attackRoll == 3){
                                 System.out.println("¡Golpe Súper Crítico!");
@@ -774,6 +816,7 @@ public class Tema2EjercicioProgramacionEstructurada {
                             p1_health -= p2_attackCalc;
 
                             p2_channeling = 1;
+                            p2_counter = 0;
 
                             if (p2_health < 0) p2_health = 0;
                             if (p1_health < 0) p1_health = 0;
@@ -872,6 +915,39 @@ public class Tema2EjercicioProgramacionEstructurada {
 
                             p2_channeling = 2;
 
+                        }
+
+                        case 5 -> {
+
+                            if (p1_attackCalc == 0){
+
+                                System.out.println("El enemigo todavía no te ha atacado. No has podido absorber.");
+                                System.out.println(" ");
+
+                            } else {
+
+                                p2_counterRoll = roll.nextInt(1, 3);
+
+                                if (p2_counterRoll == 2) {
+
+                                    System.out.println("¡Has absorbido la potencia del ataque de tu enemigo!");
+                                    System.out.println("Tu siguiente ataque será más poderoso.");
+                                    System.out.println(" ");
+
+                                    p2_counter = p2_attackCalc;
+
+                                } else {
+
+                                    System.out.println("¡Tu reflejo ha fallado!");
+                                    System.out.println("Has recibido " + p1_attackCalc / 2 + " puntos de daño adicionales.");
+                                    System.out.println(" ");
+
+                                    p2_health -= p1_attackCalc / 2;
+
+                                    if (p2_health < 0) p2_health = 0;
+
+                                }
+                            }
                         }
 
                         default -> {
