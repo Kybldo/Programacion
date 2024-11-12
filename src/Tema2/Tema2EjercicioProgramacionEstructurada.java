@@ -12,8 +12,8 @@ public class Tema2EjercicioProgramacionEstructurada {
         Random roll = new Random();
 
         //Atributos de rondas, turnos, elecciones, selección de modo de juego, selección de clase.
-        int choice_p1 = 0;
-        int choice_p2 = 0;
+        int choice_p1;
+        int choice_p2;
 
         int gamemode = 0;
 
@@ -25,7 +25,7 @@ public class Tema2EjercicioProgramacionEstructurada {
 
         int round = 0;
 
-        int turn = 0;
+        int turn;
 
         //Atributos del primer jugador.
         int p1_statsTotal = 0;
@@ -33,23 +33,23 @@ public class Tema2EjercicioProgramacionEstructurada {
         int p1_attack = 0;
         int p1_defense = 0;
         int p1_speed = 0;
-        int p1_statsLeft = 500;
+        int p1_statsLeft;
 
-        int p1_regen = 0;
-        int p1_regenRoll = 0;
-        double p1_regenChance = 0;
+        int p1_regen;
+        int p1_regenRoll;
+        double p1_regenChance;
         int p1_healthMAX = 0;
 
-        int p1_pity = 0;
+        int p1_pity;
         double p1_channeling = 1;
         int p1_counter = 0;
-        int p1_counterRoll = 0;
+        int p1_counterRoll;
 
         //Atributos y cálculos de ataque del primer jugador.
         int p1_attackCalc = 0;
-        int p1_attackRoll = 0;
-        double p1_attackChance = 0;
-        double p1_defenseChance = 0;
+        int p1_attackRoll;
+        double p1_attackChance;
+        double p1_defenseChance;
 
         //Atributos del segundo jugador.
         int p2_statsTotal = 0;
@@ -57,23 +57,23 @@ public class Tema2EjercicioProgramacionEstructurada {
         int p2_attack = 0;
         int p2_defense = 0;
         int p2_speed = 0;
-        int p2_statsLeft = 500;
+        int p2_statsLeft;
 
-        int p2_regen = 0;
-        int p2_regenRoll = 0;
-        double p2_regenChance = 0;
+        int p2_regen;
+        int p2_regenRoll;
+        double p2_regenChance;
         int p2_healthMAX = 0;
 
-        int p2_pity = 0;
+        int p2_pity;
         double p2_channeling = 1;
         int p2_counter = 0;
-        int p2_counterRoll = 0;
+        int p2_counterRoll;
 
         //Atributos y cálculos de ataque del segundo jugador.
         int p2_attackCalc = 0;
-        int p2_attackRoll = 0;
-        double p2_attackChance = 0;
-        double p2_defenseChance = 0;
+        int p2_attackRoll;
+        double p2_attackChance;
+        double p2_defenseChance;
 
         //Título del juego.
         System.out.println(" ");
@@ -333,7 +333,6 @@ public class Tema2EjercicioProgramacionEstructurada {
 
                     while (p1_statsTotal == 0 || p1_statsTotal > 500) {
 
-                        p1_statsTotal = 0;
                         p1_health = 0;
                         p1_attack = 0;
                         p1_defense = 0;
@@ -433,7 +432,6 @@ public class Tema2EjercicioProgramacionEstructurada {
 
                     while (p2_statsTotal == 0 || p2_statsTotal > 500) {
 
-                        p2_statsTotal = 0;
                         p2_health = 0;
                         p2_attack = 0;
                         p2_defense = 0;
