@@ -758,9 +758,7 @@ public class Tema2EjercicioProgramacionEstructurada {
                                     if (p1_health < 0) p1_health = 0;
 
                                 }
-
                             }
-
                         }
 
                         default -> {
@@ -801,7 +799,6 @@ public class Tema2EjercicioProgramacionEstructurada {
                         System.out.println(computerTurn);
 
                     }
-
                 }
 
                 case 2 -> {
@@ -1076,9 +1073,7 @@ public class Tema2EjercicioProgramacionEstructurada {
                     p2_health = 0;
 
                 }
-
             }
-
         }
 
         read.close();
