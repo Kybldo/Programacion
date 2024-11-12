@@ -15,6 +15,10 @@ public class Tema2EjercicioProgramacionEstructurada {
         int choice_p1;
         int choice_p2;
 
+        int choiceGame;
+        boolean computer = false;
+        char computerTurn;
+
         int gamemode = 0;
 
         int p1_classSelect = 0;
@@ -93,7 +97,14 @@ public class Tema2EjercicioProgramacionEstructurada {
         System.out.println(" ");
 
         System.out.println("¿Cómo quieres jugar?");
+        System.out.println("1. Jugador contra Jugador | 2. Solo contra la máquina");
+
+        choiceGame = read.nextInt();
+
+        if (choiceGame == 2) computer = true;
+
         System.out.println(" ");
+        System.out.println("¿Cómo quieres que sean los personajes?");
         System.out.println("1. Personajes predeterminados | 2. Parámetros personalizados");
 
         //Elección del modo de juego (personajes fijos, personajes personalizados).
@@ -764,15 +775,33 @@ public class Tema2EjercicioProgramacionEstructurada {
 
                     System.out.println(" ");
 
+                    if (computer){
+
+                        System.out.println(" ");
+                        System.out.println("Introduce cualquier carácter para continuar.");
+                        computerTurn = read.next().charAt(0);
+
+                        System.out.println(computerTurn);
+
+                    }
+
                 }
 
                 case 2 -> {
 
-                    System.out.println("Jugador 2" + " (" + p2_className + ")" + " - Elige una acción:");
-                    System.out.println("1. Ataque | 2. Regenerar | 3. Pedir Perdón | 4. Canalizar | 5. Reflejar");
-                    System.out.println(" ");
+                    if (computer){
 
-                    choice_p2 = read.nextInt();
+                        choice_p2 = roll.nextInt(1, 6);
+
+                    } else {
+
+                        System.out.println("Jugador 2" + " (" + p2_className + ")" + " - Elige una acción:");
+                        System.out.println("1. Ataque | 2. Regenerar | 3. Pedir Perdón | 4. Canalizar | 5. Reflejar");
+                        System.out.println(" ");
+
+                        choice_p2 = read.nextInt();
+
+                    }
 
                     switch (choice_p2) {
 
@@ -982,17 +1011,36 @@ public class Tema2EjercicioProgramacionEstructurada {
 
             System.out.println(" ");
 
-            if (p1_health == 0 || p2_health == 0){
+            if (computer){
 
-                if (p1_health > p2_health){
-                    System.out.println("¡Ha ganado el jugador 1!");
+                if (p1_health == 0 || p2_health == 0){
 
-                } else System.out.println("¡Ha ganado el jugador 2!");
+                    if (p1_health > p2_health){
+                        System.out.println("¡Ha ganado el jugador 1!");
 
-                p1_health = 0;
-                p2_health = 0;
+                    } else System.out.println("¡Ha ganado la máquina!");
+
+                    p1_health = 0;
+                    p2_health = 0;
+
+                }
+
+            } else {
+
+                if (p1_health == 0 || p2_health == 0){
+
+                    if (p1_health > p2_health){
+                        System.out.println("¡Ha ganado el jugador 1!");
+
+                    } else System.out.println("¡Ha ganado el jugador 2!");
+
+                    p1_health = 0;
+                    p2_health = 0;
+
+                }
 
             }
+
         }
 
         read.close();
