@@ -13,11 +13,12 @@ public class Tema2EjercicioProgramacionEstructurada {
 
         //Atributos de rondas, turnos, elecciones, selección de modo de juego, selección de clase.
         int choice_p1;
-        int choice_p2;
+        int choice_p2 = 0;
 
         int choiceGame;
         boolean computer = false;
         char computerTurn;
+        int computerAI = 0;
 
         int gamemode = 0;
 
@@ -100,8 +101,17 @@ public class Tema2EjercicioProgramacionEstructurada {
         System.out.println("1. Jugador contra Jugador | 2. Solo contra la máquina");
 
         choiceGame = read.nextInt();
-
         if (choiceGame == 2) computer = true;
+
+        if (computer){
+
+            System.out.println(" ");
+            System.out.println("Selecciona un nivel de dificultad:");
+            System.out.println("1. Descerebrado | 2. Cerebrado");
+
+            computerAI = read.nextInt();
+
+        }
 
         System.out.println(" ");
         System.out.println("¿Cómo quieres que sean los personajes?");
@@ -559,7 +569,14 @@ public class Tema2EjercicioProgramacionEstructurada {
 
             round++;
             System.out.println(" ");
-            System.out.println("RONDA " + round);
+            System.out.print("RONDA " + round);
+
+            if (turn == 1){
+
+                System.out.print(" - TURNO DEL JUGADOR 1");
+
+            } else System.out.print(" - TURNO DEL JUGADOR 2");
+
             System.out.println(" ");
 
             switch (turn){
@@ -789,9 +806,30 @@ public class Tema2EjercicioProgramacionEstructurada {
 
                 case 2 -> {
 
-                    if (computer){
+                   if (computer){
 
-                        choice_p2 = roll.nextInt(1, 6);
+                        switch (computerAI){
+
+                            case 1 -> choice_p2 = roll.nextInt(1, 6);
+
+                            case 2 -> {
+
+                                if (p1_attackCalc == 0) {
+
+                                    choice_p2 = 1;
+
+                                } else choice_p2 = roll.nextInt(1, 3);
+
+                                if (choice_p2 == 2) choice_p2 = 4;
+
+                                if (p2_channeling == 2) choice_p2 = 1;
+
+                                if (p1_attackCalc > 14) choice_p2 = 5;
+
+                                if (p2_healthMAX < p2_healthMAX / 3) choice_p2 = 2;
+
+                            }
+                        }
 
                     } else {
 
