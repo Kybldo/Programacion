@@ -17,7 +17,7 @@ public class Tema2EjercicioProgramacionEstructurada {
 
         int choiceGame = 0;
         boolean computer = false;
-        char computerTurn;
+        String computerTurn;
         int computerAI = 0;
 
         int gamemode = 0;
@@ -835,8 +835,9 @@ public class Tema2EjercicioProgramacionEstructurada {
                     if (computer){
 
                         System.out.println(" ");
-                        System.out.println("Introduce cualquier carácter para continuar.");
-                        computerTurn = read.next().charAt(0);
+                        System.out.println("Pulsa Enter para continuar.");
+                        computerTurn = read.nextLine();
+                        computerTurn = read.nextLine();
 
                         System.out.println(computerTurn);
 
