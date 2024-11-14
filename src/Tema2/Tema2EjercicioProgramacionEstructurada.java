@@ -644,7 +644,7 @@ public class Tema2EjercicioProgramacionEstructurada {
                             p1_regenRoll = roll.nextInt(1, 3);
                             p1_regenChance = roll.nextDouble(0.5, 0.9);
 
-                            p1_regen = (int) (p1_regenRoll + (p1_health * p1_regenChance) * 0.2);
+                            p1_regen = (int) (p1_regenRoll + (p1_healthMAX * p1_regenChance) * 0.2);
 
                             if (p1_healthMAX == p1_health){
 
@@ -899,7 +899,7 @@ public class Tema2EjercicioProgramacionEstructurada {
                             p2_regenRoll = roll.nextInt(1, 3);
                             p2_regenChance = roll.nextDouble(0.5, 0.9);
 
-                            p2_regen = (int) (p2_regenRoll + (p2_health * p2_regenChance) * 0.2);
+                            p2_regen = (int) (p2_regenRoll + (p2_healthMAX * p2_regenChance) * 0.2);
 
                             if (p2_healthMAX == p2_health){
 
