@@ -567,6 +567,8 @@ public class Tema2EjercicioProgramacionEstructurada {
         //El bucle de la pelea.
         while (p1_health > 0 || p2_health > 0) {
 
+            System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+
             round++;
             System.out.println(" ");
             System.out.print("RONDA " + round);
@@ -747,6 +749,8 @@ public class Tema2EjercicioProgramacionEstructurada {
 
                                     p1_counter = p2_attackCalc;
 
+                                    p2_attackCalc = 0;
+
                                 } else {
 
                                     System.out.println("¡Tu reflejo ha fallado!");
@@ -754,6 +758,8 @@ public class Tema2EjercicioProgramacionEstructurada {
                                     System.out.println(" ");
 
                                     p1_health -= p2_attackCalc / 2;
+
+                                    p2_attackCalc = 0;
 
                                     if (p1_health < 0) p1_health = 0;
 
@@ -996,7 +1002,9 @@ public class Tema2EjercicioProgramacionEstructurada {
                                     System.out.println("Tu siguiente ataque será más poderoso.");
                                     System.out.println(" ");
 
-                                    p2_counter = p2_attackCalc;
+                                    p2_counter = p1_attackCalc;
+
+                                    p1_attackCalc = 0;
 
                                 } else {
 
@@ -1005,6 +1013,8 @@ public class Tema2EjercicioProgramacionEstructurada {
                                     System.out.println(" ");
 
                                     p2_health -= p1_attackCalc / 2;
+
+                                    p1_attackCalc = 0;
 
                                     if (p2_health < 0) p2_health = 0;
 
