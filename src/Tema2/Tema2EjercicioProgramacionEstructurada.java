@@ -15,7 +15,7 @@ public class Tema2EjercicioProgramacionEstructurada {
         int choice_p1;
         int choice_p2 = 0;
 
-        int choiceGame;
+        int choiceGame = 0;
         boolean computer = false;
         char computerTurn;
         int computerAI = 0;
@@ -97,10 +97,41 @@ public class Tema2EjercicioProgramacionEstructurada {
                                              \\______/                      \\______/                                           \\__|                 \\______/                                        \s""");
         System.out.println(" ");
 
-        System.out.println("¿Cómo quieres jugar?");
-        System.out.println("1. Jugador contra Jugador | 2. Solo contra la máquina");
+        while (choiceGame == 0 || choiceGame == 3){
 
-        choiceGame = read.nextInt();
+            System.out.println("¿Cómo quieres jugar?");
+            System.out.println("1. Jugador contra Jugador | 2. Solo contra la máquina | 3. Por querer quiero una explicación");
+
+            choiceGame = read.nextInt();
+
+            if (choiceGame == 3){
+
+                System.out.println(" ");
+                System.out.println("■ ACCIONES DE COMBATE:");
+                System.out.println(" ");
+                System.out.println("Atacar: Golpearás al enemigo. Los golpes pueden ser normales (daño base, basado en la fórmula), críticos (daño x2), o súper críticos (daño x3).");
+                System.out.println(" ");
+                System.out.println("Regenerar: Recuperarás parte de tu vida. La fórmula favorece a jugadores con la vida máxima más alta (a más vida máxima, más regeneras).");
+                System.out.println(" ");
+                System.out.println("Pedir perdón: Le pedirás perdón al enemigo. Tendrás un 1% de posibilidades de que se compadezca de ti, haciendo que ganes la pelea automáticamente.");
+                System.out.println(" ");
+                System.out.println("Canalizar: Gastarás el turno en acumular energía, haciendo que tu siguiente ataque cause el doble de daño.");
+                System.out.println(" ");
+                System.out.println("Reflejar: Si el enemigo te ha atacado, absorberás su ataque más reciente, y sumarás su valor a tu siguiente ataque.");
+                System.out.println("(Si el enemigo te hace 10, y eliges reflejar, tu siguiente ataque hará X + 10)");
+                System.out.println(" ");
+                System.out.println("El reflejo solo tiene una probabilidad de acierto del 50%, y, si fallas, se te causará la mitad del daño que has intentado reflejar.");
+                System.out.println("(Si el enemigo te hace 10, y eliges reflejar, pero fallas, recibirás 5 de daño)");
+                System.out.println(" ");
+                System.out.println("■ MODOS DE DIFICULTAD:");
+                System.out.println(" ");
+                System.out.println("Descerebrado: La IA escogerá los movimientos de forma aleatoria.");
+                System.out.println(" ");
+                System.out.println("Cerebrado: La IA escogerá los movimientos óptimos dependiendo de la situación, emulando las decisiones que podría tomar un jugador real.");
+                System.out.println(" ");
+            }
+        }
+        
         if (choiceGame == 2) computer = true;
 
         if (computer){
