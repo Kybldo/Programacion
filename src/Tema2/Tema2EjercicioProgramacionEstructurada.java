@@ -11,7 +11,7 @@ public class Tema2EjercicioProgramacionEstructurada {
         Scanner read = new Scanner(System.in);
         Random roll = new Random();
 
-        //Atributos de rondas, turnos, elecciones, selección de modo de juego, selección de clase.
+        //Atributos de rondas, turnos, elecciones, selección de modo de juego, selección de clase...
         int choice_p1;
         int choice_p2 = 0;
 
@@ -32,7 +32,7 @@ public class Tema2EjercicioProgramacionEstructurada {
 
         int turn;
 
-        //Atributos del primer jugador.
+        //Atributos y variables para cálculos del primer jugador.
         int p1_statsTotal = 0;
         int p1_health = 0;
         int p1_attack = 0;
@@ -50,13 +50,12 @@ public class Tema2EjercicioProgramacionEstructurada {
         int p1_counter = 0;
         int p1_counterRoll;
 
-        //Atributos y cálculos de ataque del primer jugador.
         int p1_attackCalc = 0;
         int p1_attackRoll;
         double p1_attackChance;
         double p1_defenseChance;
 
-        //Atributos del segundo jugador.
+        //Atributos y variables para cálculos del segundo jugador.
         int p2_statsTotal = 0;
         int p2_health = 0;
         int p2_attack = 0;
@@ -74,7 +73,6 @@ public class Tema2EjercicioProgramacionEstructurada {
         int p2_counter = 0;
         int p2_counterRoll;
 
-        //Atributos y cálculos de ataque del segundo jugador.
         int p2_attackCalc = 0;
         int p2_attackRoll;
         double p2_attackChance;
@@ -97,8 +95,10 @@ public class Tema2EjercicioProgramacionEstructurada {
                                              \\______/                      \\______/                                           \\__|                 \\______/                                        \s""");
         System.out.println(" ");
 
+        //Inicio del juego.
         while (choiceGame == 0 || choiceGame == 3){
 
+            //Selección del modo de juego. También incluye la opción de ver una explicación de las funciones del juego.
             System.out.println("¿Cómo quieres jugar?");
             System.out.println("1. Jugador contra Jugador | 2. Solo contra la máquina | 3. Por querer quiero una explicación");
 
@@ -131,7 +131,8 @@ public class Tema2EjercicioProgramacionEstructurada {
                 System.out.println(" ");
             }
         }
-        
+
+        //Activa la inteligencia artificial para las peleas contra la máquina.
         if (choiceGame == 2) computer = true;
 
         if (computer){
@@ -144,6 +145,7 @@ public class Tema2EjercicioProgramacionEstructurada {
 
         }
 
+        //Selección de personajes / estadísticas.
         System.out.println(" ");
         System.out.println("¿Cómo quieres que sean los personajes?");
         System.out.println("1. Personajes predeterminados | 2. Parámetros personalizados");
@@ -600,10 +602,12 @@ public class Tema2EjercicioProgramacionEstructurada {
 
             System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 
+            //Aumenta e imprime las rondas transcurridas.
             round++;
             System.out.println(" ");
             System.out.print("RONDA " + round);
 
+            //Decide el turno inicial.
             if (turn == 1){
 
                 System.out.print(" - TURNO DEL JUGADOR 1");
@@ -612,6 +616,7 @@ public class Tema2EjercicioProgramacionEstructurada {
 
             System.out.println(" ");
 
+            //Acciones del primer jugador. Se entrará en el switch si la variable "turn" equivale a 1.
             switch (turn){
 
                 case 1 -> {
@@ -838,6 +843,7 @@ public class Tema2EjercicioProgramacionEstructurada {
                     }
                 }
 
+                //Acciones del segundo jugador. Se entrará en el switch si la variable "turn" equivale a 2.
                 case 2 -> {
 
                    if (computer){
@@ -1087,6 +1093,7 @@ public class Tema2EjercicioProgramacionEstructurada {
 
             System.out.println(" ");
 
+            //Determina si el juego tiene que terminar.
             if (computer){
 
                 if (p1_health == 0 || p2_health == 0){
