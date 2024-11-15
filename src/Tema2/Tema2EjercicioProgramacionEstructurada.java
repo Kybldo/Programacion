@@ -19,6 +19,7 @@ public class Tema2EjercicioProgramacionEstructurada {
         boolean computer = false;
         String computerTurn;
         int computerAI = 0;
+        int computerHealthRoll;
 
         int gamemode = 0;
 
@@ -55,6 +56,8 @@ public class Tema2EjercicioProgramacionEstructurada {
         double p1_attackChance;
         double p1_defenseChance;
 
+        int p1_speedRoll;
+
         //Atributos y variables para cálculos del segundo jugador.
         int p2_statsTotal = 0;
         int p2_health = 0;
@@ -78,6 +81,8 @@ public class Tema2EjercicioProgramacionEstructurada {
         double p2_attackChance;
         double p2_defenseChance;
 
+        int p2_speedRoll;
+
         //Título del juego.
         System.out.println(" ");
         System.out.println(
@@ -91,7 +96,7 @@ public class Tema2EjercicioProgramacionEstructurada {
                         $$$$$$$$\\ $$ |            $$ |\\$$$$$$  |\\$$$$$$$\\ \\$$$$$$$ |\\$$$$$$  |      \\$$$$$$$ |\\$$$$$$$\\       $$$$$$$  |\\$$$$$$$\\ \\$$$$$$$ |\\$$$$$$$ |$$ |      $$$$$$$  |\\$$$$$$$\\\s
                         \\________|\\__|            $$ | \\______/  \\_______| \\____$$ | \\______/        \\_______| \\_______|      $$  ____/  \\_______| \\____$$ | \\_______|\\__|      \\_______/  \\_______|
                                             $$\\   $$ |                    $$\\   $$ |                                          $$ |                $$\\   $$ |                                       \s
-                                            \\$$$$$$  |                    \\$$$$$$  |                                          $$ |                \\$$$$$$  |                                       \s
+                                            \\$$$$$$  |                    \\$$$$$$  |              Versión - 1.2               $$ |                \\$$$$$$  |                                       \s
                                              \\______/                      \\______/                                           \\__|                 \\______/                                        \s""");
         System.out.println(" ");
 
@@ -128,6 +133,12 @@ public class Tema2EjercicioProgramacionEstructurada {
                 System.out.println("Descerebrado: La IA escogerá los movimientos de forma aleatoria.");
                 System.out.println(" ");
                 System.out.println("Cerebrado: La IA escogerá los movimientos óptimos dependiendo de la situación, emulando las decisiones que podría tomar un jugador real.");
+                System.out.println(" ");
+                System.out.println("■ TRUCOS Y CONSEJOS:");
+                System.out.println(" ");
+                System.out.println("Si reflejas un ataque con éxito, puedes canalizar el golpe antes de atacar, resultando en más daño.");
+                System.out.println(" ");
+                System.out.println("Si tienes más velocidad que tu enemigo, tendrás una probabilidad de un 25% de actuar dos turnos seguidos. No descuides la velocidad, los turnos extra pueden darte ventaja.");
                 System.out.println(" ");
             }
         }
@@ -187,7 +198,7 @@ public class Tema2EjercicioProgramacionEstructurada {
 
                     System.out.println("6. ERIC");
                     System.out.println("Especialmente diseñado para derrotar a Apolinar Zaera.");
-                    System.out.println("Vida: 151 | Ataque: 200 | Defensa: 148 | Velocidad: 1");
+                    System.out.println("Vida: 150 | Ataque: 200 | Defensa: 148 | Velocidad: 2");
                     System.out.println(" ");
 
                     while (p1_classSelect == 0 | p1_classSelect > 6){
@@ -269,9 +280,9 @@ public class Tema2EjercicioProgramacionEstructurada {
                                 p1_health = 150;
                                 p1_attack = 200;
                                 p1_defense = 148;
-                                p1_speed = 1;
+                                p1_speed = 2;
 
-                                p1_healthMAX = 151;
+                                p1_healthMAX = 150;
 
                                 p1_className = "ERIC";
 
@@ -361,9 +372,9 @@ public class Tema2EjercicioProgramacionEstructurada {
                                 p2_health = 150;
                                 p2_attack = 200;
                                 p2_defense = 148;
-                                p2_speed = 1;
+                                p2_speed = 2;
 
-                                p2_healthMAX = 151;
+                                p2_healthMAX = 150;
 
                                 p2_className = "ERIC";
 
@@ -815,6 +826,20 @@ public class Tema2EjercicioProgramacionEstructurada {
 
                     turn = 2;
 
+                    if (p1_speed > p2_speed) {
+
+                        p1_speedRoll = roll.nextInt(1, 5);
+
+                        if (p1_speedRoll == 4) {
+
+                            turn = 1;
+
+                            System.out.println("■ ! ■ ! ■ ¡Eres más rápido que tu oponente! Actúas otro turno. ■ ! ■ ! ■");
+                            System.out.println(" ");
+
+                        }
+                    }
+
                     System.out.println("Jugador 1" + " (" + p1_className + ")");
                     System.out.print("Vida: " + p1_health + " ");
 
@@ -867,7 +892,13 @@ public class Tema2EjercicioProgramacionEstructurada {
 
                                 if (p1_attackCalc > 14) choice_p2 = 5;
 
-                                if (p2_healthMAX < p2_healthMAX / 3) choice_p2 = 2;
+                                if (p2_healthMAX < p2_healthMAX / 2) {
+
+                                    computerHealthRoll = roll.nextInt(1, 3);
+
+                                    if (computerHealthRoll == 2) choice_p2 = 2;
+
+                                } else choice_p2 = 1;
 
                             }
                         }
@@ -1071,6 +1102,20 @@ public class Tema2EjercicioProgramacionEstructurada {
                     }
 
                     turn = 1;
+
+                    if (p2_speed > p1_speed) {
+
+                        p2_speedRoll = roll.nextInt(1, 5);
+
+                        if (p2_speedRoll == 4) {
+
+                            turn = 2;
+
+                            System.out.println("■ ! ■ ! ■ ¡Eres más rápido que tu oponente! Actúas otro turno. ■ ! ■ ! ■");
+                            System.out.println(" ");
+
+                        }
+                    }
 
                     System.out.println("Jugador 1" + " (" + p1_className + ")");
                     System.out.println("Vida: " + p1_health + " ");
