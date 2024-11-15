@@ -838,6 +838,8 @@ public class Tema2EjercicioProgramacionEstructurada {
                             System.out.println(" ");
 
                         }
+
+                        if (p2_health == 0) turn = 2;
                     }
 
                     System.out.println("Jugador 1" + " (" + p1_className + ")");
@@ -1115,6 +1117,8 @@ public class Tema2EjercicioProgramacionEstructurada {
                             System.out.println(" ");
 
                         }
+
+                        if (p1_health == 0) turn = 1;
                     }
 
                     System.out.println("Jugador 1" + " (" + p1_className + ")");
