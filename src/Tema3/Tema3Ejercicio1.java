@@ -14,6 +14,8 @@ public class Tema3Ejercicio1 {
 
         System.out.println(numberSign(numUser));
 
+        read.close();
+
     }
 
     public static int numberSign(int numFunc){

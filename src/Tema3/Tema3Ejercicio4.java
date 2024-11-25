@@ -1,3 +1,5 @@
+package Tema3;
+
 import java.util.Scanner;
 
 public class Tema3Ejercicio4 {
@@ -35,6 +37,8 @@ public class Tema3Ejercicio4 {
             default -> System.out.println("Introduce un programa válido.");
 
         }
+
+        read.close();
 
     }
 

@@ -23,6 +23,8 @@ public class Tema3Ejercicio3 {
 
         System.out.println("Superficie: " + calculateCircleArea(radius));
 
+        read.close();
+
     }
 
     public static boolean validRadius(int radius){
