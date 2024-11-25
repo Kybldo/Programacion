@@ -4,10 +4,12 @@ public class Tema3Ejercicio6 {
 
     public static void main(String[] args) {
 
+        //Llama a la función de las tablas de multiplicar, enseñándolas todas del 1 al 10
         tables();
 
     }
 
+    //Utiliza un for que calcula las tablas, basándose en un contador, y las imprime
     public static void tables(){
 
         int num;
@@ -22,9 +24,6 @@ public class Tema3Ejercicio6 {
                 System.out.println(num + " * " + i + " = " + (num * i));
 
             }
-
         }
-
     }
-
 }

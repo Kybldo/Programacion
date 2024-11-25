@@ -7,15 +7,18 @@ public class Tema3Ejercicio8 {
     public static void main(String[] args) {
 
         Scanner read = new Scanner(System.in);
-        
+
+        //Variables para los cálculos
         int month = 0;
         int day = 0;
         int year;
 
+        //Pide un año
         System.out.println("Introduce un año:");
 
         year = read.nextInt();
 
+        //Pide un mes; de ser incorrecto, pide otro
         while (month == 0 || month > 12){
 
             System.out.println(" ");
@@ -28,6 +31,7 @@ public class Tema3Ejercicio8 {
 
         }
 
+        //Pide un año; de ser incorrecto, pide otro
         while (day == 0 || day > 31){
 
             System.out.println("Introduce un día:");
@@ -39,6 +43,7 @@ public class Tema3Ejercicio8 {
 
         }
 
+        //Imprime el resultado, utilizando la función
         System.out.println(day + " del " + month + " de " + year);
         System.out.println(" ");
 
@@ -54,6 +59,7 @@ public class Tema3Ejercicio8 {
 
     }
 
+    //Comprueba si la fecha es válida basándose en el día, dependiendo del mes, y calculando si el año es bisiesto
     public static boolean dateValid(int month, int day, int year){
 
         boolean valid = false;
@@ -79,5 +85,4 @@ public class Tema3Ejercicio8 {
         return valid;
 
     }
-
 }

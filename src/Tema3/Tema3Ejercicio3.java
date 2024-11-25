@@ -8,6 +8,7 @@ public class Tema3Ejercicio3 {
 
         Scanner read = new Scanner(System.in);
 
+        //Se pide un radio
         System.out.println("Introduce un radio:");
 
         int radius = read.nextInt();
@@ -19,6 +20,7 @@ public class Tema3Ejercicio3 {
 
         }
 
+        //Se llaman a las funciones, se calculan y se muestran perímetro y área
         System.out.println("Perímetro: " + calculateCirclePerimeter(radius));
 
         System.out.println("Superficie: " + calculateCircleArea(radius));
@@ -27,22 +29,24 @@ public class Tema3Ejercicio3 {
 
     }
 
+    //Determina si el radio es válido
     public static boolean validRadius(int radius){
 
         return radius <= 0;
 
     }
 
+    //Calcula el perímetro
     public static double calculateCirclePerimeter(int radius){
 
         return 2 * 3.14 * radius;
 
     }
 
+    //Calcula el área
     public static double calculateCircleArea(int radius){
 
         return (3.14 * (radius * radius));
 
     }
-
 }

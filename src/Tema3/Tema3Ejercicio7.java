@@ -10,6 +10,7 @@ public class Tema3Ejercicio7 {
 
         int num = 0;
 
+        //Pide números primos de forma indefinida, llamando a la función y mostrando si es primo o no en el proceso; deja de pedir al introducir un negativo
         while (num >= 0){
 
             System.out.println(" ");
@@ -17,7 +18,12 @@ public class Tema3Ejercicio7 {
 
             num = read.nextInt();
 
-            if (num > 1) primo(num);
+            //Excepción para que no tome 1 como número primo
+            if (num == 1){
+
+                System.out.println("No primo");
+
+            } else if (num > 0) primo(num);
 
         }
 
@@ -25,6 +31,7 @@ public class Tema3Ejercicio7 {
 
     }
 
+    //Determina si el número es primo
     public static void primo(int num){
 
         boolean noPrimo = false;
@@ -42,5 +49,4 @@ public class Tema3Ejercicio7 {
         } else System.out.println("Primo");
 
     }
-
 }

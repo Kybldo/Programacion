@@ -18,8 +18,10 @@ public class Tema3Ejercicio10 {
 
         Scanner read = new Scanner(System.in);
 
+        //Variable para la selección del menú
         int selection = 0;
 
+        //Se pregunta en qué programa entrar; se pide un entero, y se entra en el switch
         while (selection == 0 || selection > 9){
 
             System.out.println("Introduce el programa a elegir:");
@@ -47,16 +49,27 @@ public class Tema3Ejercicio10 {
 
         switch (selection){
 
+            //Mostrar el signo de un número
             case 1 -> {
 
                 System.out.println("Introduce un número:");
 
                 int numUser = read.nextInt();
 
-                System.out.println(numberSign(numUser));
+                int result = numberSign(numUser);
 
+                if (result == 0){
+
+                    System.out.println("El número es cero.");
+
+                } else if (result < 0) {
+
+                    System.out.println("El número es negativo.");
+
+                } else System.out.println("El número es positivo.");
             }
 
+            //Indicar si eres mayor de edad
             case 2 -> {
 
                 System.out.println("Introduce una edad:");
@@ -68,9 +81,9 @@ public class Tema3Ejercicio10 {
                     System.out.println("Es mayor de edad.");
 
                 } else System.out.println("No es mayor de edad.");
-
             }
 
+            //Calcular área y perímetro
             case 3 -> {
 
                 System.out.println("Introduce un radio:");
@@ -90,6 +103,7 @@ public class Tema3Ejercicio10 {
 
             }
 
+            //Convertir euros a dólares (y viceversa)
             case 4 -> {
 
                 showMenu();
@@ -121,9 +135,9 @@ public class Tema3Ejercicio10 {
                     default -> System.out.println("Introduce un programa válido.");
 
                 }
-
             }
 
+            //Mostrar tabla de multiplicar
             case 5 -> {
 
                 int num = 0;
@@ -142,25 +156,30 @@ public class Tema3Ejercicio10 {
 
             }
 
+            //Mostrar tablas de multiplicar (del 1 al 10)
             case 6 -> tables();
 
+            //Comprobar números primos
             case 7 -> {
 
                 int num = 0;
 
-                while (num >= 0){
+                while (num >= 0) {
 
                     System.out.println(" ");
                     System.out.println("Introduce números para ver si son primos (para salir, introduce un negativo):");
 
                     num = read.nextInt();
 
-                    if (num > 1) primo(num);
+                    if (num == 1) {
 
+                        System.out.println("No primo");
+
+                    } else if (num > 0) primo(num);
                 }
-
             }
 
+            //Comprobar fechas
             case 8 -> {
 
                 int month = 0;
@@ -204,9 +223,9 @@ public class Tema3Ejercicio10 {
                     System.out.println("La fecha es válida.");
 
                 } else System.out.println("La fecha no es válida.");
-
             }
 
+            //Dibujar triángulos
             case 9 -> {
 
                 read. nextLine();
@@ -224,10 +243,8 @@ public class Tema3Ejercicio10 {
                 triangle(character, num);
 
             }
-
         }
 
         read.close();
     }
-
 }

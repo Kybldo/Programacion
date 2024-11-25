@@ -8,16 +8,30 @@ public class Tema3Ejercicio1 {
 
         Scanner read = new Scanner(System.in);
 
+        //Se pide el número
         System.out.println("Introduce un número:");
 
+        //Se declaran las variables (usuario + guardar valor de la función)
         int numUser = read.nextInt();
 
-        System.out.println(numberSign(numUser));
+        int result = numberSign(numUser);
+
+        //Se compara el resultado de la función, se muestra el resultado
+        if (result == 0){
+
+            System.out.println("El número es cero.");
+
+        } else if (result < 0) {
+
+            System.out.println("El número es negativo.");
+
+        } else System.out.println("El número es positivo.");
 
         read.close();
 
     }
 
+    //Toma un número, devuelve -1, 0 o 1 en consecuencia
     public static int numberSign(int numFunc){
 
         if (numFunc == 0){
@@ -31,5 +45,4 @@ public class Tema3Ejercicio1 {
         } else return -1;
 
     }
-
 }

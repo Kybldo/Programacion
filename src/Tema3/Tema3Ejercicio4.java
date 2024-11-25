@@ -8,10 +8,12 @@ public class Tema3Ejercicio4 {
 
         Scanner read = new Scanner(System.in);
 
+        //Muestra el menú
         showMenu();
 
         int select = read.nextInt();
 
+        //En base a la elección, entra en uno de los dos programas
         switch (select){
 
             case 1 -> {
@@ -42,6 +44,7 @@ public class Tema3Ejercicio4 {
 
     }
 
+    //Función del menú
     public static void showMenu(){
 
         System.out.println("Elige un programa:");
@@ -49,16 +52,17 @@ public class Tema3Ejercicio4 {
 
     }
 
+    //Pasa euros a dólares
     public static double euro2dollar(double euro){
 
         return euro * 1.04;
 
     }
 
+    //Pasa dólares a euros
     public static double dollar2euro(double dollar){
 
         return dollar * 0.96;
 
     }
-
 }
