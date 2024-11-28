@@ -24,7 +24,7 @@ public class Tema3Ejercicio10 {
         //Se pregunta en qué programa entrar; se pide un entero, y se entra en el switch
         while (selection == 0 || selection > 9){
 
-            System.out.println("Introduce el programa a elegir:");
+            System.out.println("Escoge el programa a ejecutar:");
             System.out.println(" ");
 
             System.out.println("1. Mostrar el signo de un número.");

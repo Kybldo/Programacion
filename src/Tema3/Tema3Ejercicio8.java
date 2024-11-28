@@ -11,17 +11,23 @@ public class Tema3Ejercicio8 {
         //Variables para los cálculos
         int month = 0;
         int day = 0;
-        int year;
+        int year = 0;
 
         //Pide un año
-        System.out.println("Introduce un año:");
+        while (year == 0 || year < 0){
 
-        year = read.nextInt();
+            System.out.println(" ");
+            System.out.println("Introduce un año:");
+
+            year = read.nextInt();
+
+            System.out.println(" ");
+            if (year == 0 || year < 0) System.out.println("Introduce un año válido.");
+        }
 
         //Pide un mes; de ser incorrecto, pide otro
         while (month == 0 || month > 12){
 
-            System.out.println(" ");
             System.out.println("Introduce un mes:");
 
             month = read.nextInt();
