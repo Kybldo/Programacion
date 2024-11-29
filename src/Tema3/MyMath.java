@@ -56,17 +56,7 @@ public class MyMath {
     //Dice si un número no es primo
     public static boolean noPrimo(int num){
 
-        boolean noPrimo = false;
-
-        for (int i = 2; i < num; i++){
-            int calc = num % i;
-
-            if (calc == 0){
-                noPrimo = true;
-            }
-        }
-
-        return noPrimo;
+        return primo(num);
 
     }
 
@@ -92,8 +82,16 @@ public class MyMath {
 
         int count = 0;
 
-        for (int i = 0; i <= num; i = i + 2){
-            count++;
+        while (num > 0){
+
+            int lastNum = num % 10;
+
+            if (lastNum % 2 == 0){
+                count++;
+            }
+
+            num /= 10;
+
         }
 
         return count;
@@ -107,8 +105,16 @@ public class MyMath {
 
         int count = 0;
 
-        for (int i = 1; i <= num; i = i + 2){
-            count++;
+        while (num > 0){
+
+            int lastNum = num % 10;
+
+            if (lastNum % 2 != 0){
+                count++;
+            }
+
+            num /= 10;
+
         }
 
         return count;
@@ -169,8 +175,14 @@ public class MyMath {
 
         int sum = 0;
 
-        for (int i = num; i > 0; i = i - 1){
-            sum += i;
+        while (num > 0){
+
+            int lastNum = num % 10;
+
+            sum += lastNum;
+
+            num /= 10;
+
         }
 
         return sum;
