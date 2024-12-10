@@ -177,29 +177,29 @@ public class Utils {
     //Basado en la franja de salario, determina el IRPF
     public static double calculateIRPF(int num){
 
-        double irpf;
+        double irpf = num;
 
         if (num <= 12450){
 
-            irpf = 19;
+            irpf *= 0.19;
 
         } else if (num <= 20199) {
 
-            irpf = 24;
+            irpf *= 0.24;
 
         } else if (num <= 35199) {
 
-            irpf = 30;
+            irpf *= 0.30;
 
         } else if (num <= 59999) {
 
-            irpf = 37;
+            irpf *= 0.37;
 
         } else if (num <= 299999) {
 
-            irpf = 45;
+            irpf *= 0.45;
 
-        } else irpf = 47;
+        } else irpf *= 0.47;
 
         return irpf;
 
