@@ -177,7 +177,7 @@ public class Utils {
     //Basado en la franja de salario, determina el IRPF
     public static double calculateIRPF(int num){
 
-        double irpf = 0;
+        double irpf;
 
         if (num <= 12450){
 
