@@ -2,23 +2,6 @@ package Tema3;
 
 public class Utils {
 
-    public static void main(String[] args) {
-
-        //Ejercicio 3
-
-        double num = 1;
-        double percentage = 21;
-
-        System.out.println(getNetPrice(num, percentage));
-
-        //Ejercicio 5
-
-        double num2 = 7.99;
-
-        System.out.println(getCoins(num2));
-
-    }
-
     //Ejercicio 2
 
     //Pasa de millas a kilómetros
@@ -183,7 +166,7 @@ public class Utils {
 
         int result = num % 23;
 
-        char validate = getNIF(nif);
+        char validate = getNIF(result);
 
         return validate == nif;
 
