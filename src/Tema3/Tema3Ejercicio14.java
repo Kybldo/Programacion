@@ -15,16 +15,18 @@ public class Tema3Ejercicio14 {
 
         char[] pairs = new char[20];
 
-        pairs = assignA(pairs);
-        pairs = assignB(pairs);
-        pairs = assignC(pairs);
-        pairs = assignD(pairs);
-        pairs = assignE(pairs);
-        pairs = assignF(pairs);
-        pairs = assignG(pairs);
-        pairs = assignH(pairs);
-        pairs = assignI(pairs);
-        pairs = assignJ(pairs);
+        Arrays.fill(pairs, ' ');
+
+        assignA(pairs);
+        assignB(pairs);
+        assignC(pairs);
+        assignD(pairs);
+        assignE(pairs);
+        assignF(pairs);
+        assignG(pairs);
+        assignH(pairs);
+        assignI(pairs);
+        assignJ(pairs);
 
         System.out.println(Arrays.toString(pairs));
 
