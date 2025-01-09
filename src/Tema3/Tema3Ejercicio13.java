@@ -11,28 +11,49 @@ public class Tema3Ejercicio13 {
 
         int[] hotel = new int[20];
 
-        int[] hotelTemp = new int[20];
+        int room = 0;
+        
+        while (room == 0 || room > 20){
 
-        System.out.println("Introduce el número de la habitación (1 - 20):");
+            System.out.println("Introduce el número de la habitación (1 - 20):");
 
-        int room = read.nextInt();
+            room = read.nextInt();
+            
+            if (room == 0 || room > 20){
 
+                System.out.println("Introduce un número válido.");
+                System.out.println(" ");
+                
+            }
+            
+        }
+        
         room--;
 
         int roomTemp = room;
 
-        System.out.println("Introduce la intensidad del router (1 - 6):");
+        int signal = 0;
 
-        int signal = read.nextInt();
+        while (signal == 0 || signal > 6){
+
+            System.out.println("Introduce la intensidad del router (1 - 6):");
+
+            signal = read.nextInt();
+
+            if (signal == 0 || signal > 6){
+
+                System.out.println("Introduce un número válido.");
+                System.out.println(" ");
+
+            }
+
+        }
 
         int signalTemp = signal;
 
         int signalTemp2 = signal;
 
         hotel[room] = signal;
-
-        hotelTemp[room] = signal;
-
 
         for (int i = room; i >= 0 && signalTemp > 0; i--){
 

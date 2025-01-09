@@ -1,6 +1,7 @@
 package Tema3;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -10,275 +11,112 @@ public class Tema3Ejercicio14 {
 
         Scanner read = new Scanner(System.in);
 
-        System.out.println("PAREJAS");
-        System.out.println("A, B, C, D, E, F, G, H, I, J");
+        String[] pairs = {"AA", "AA", "BB", "BB", "CC", "CC", "DD", "DD", "EE", "EE", "FF", "FF", "GG", "GG", "HH", "HH", "II", "II", "JJ", "JJ"};
 
-        char[] pairs = new char[20];
+        scramble(pairs);
 
-        Arrays.fill(pairs, ' ');
+        String[] board = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"};
 
-        assignA(pairs);
-        assignB(pairs);
-        assignC(pairs);
-        assignD(pairs);
-        assignE(pairs);
-        assignF(pairs);
-        assignG(pairs);
-        assignH(pairs);
-        assignI(pairs);
-        assignJ(pairs);
+        int found = 0;
 
-        System.out.println(Arrays.toString(pairs));
+        System.out.println("¡Encuentra las parejas!");
 
-    }
+        while (found < 10) {
 
-    public static char[] assignA(char[] pairs){
+            System.out.println("-------------------------------------------------------------------------------------");
+            System.out.println(" ");
+            System.out.println("Introduce dos números para revelar qué esconden:");
+            System.out.println(" ");
+            System.out.println(Arrays.toString(board));
+            System.out.println(" ");
 
-        Random roll = new Random();
+            int selection1 = read.nextInt();
+            selection1--;
 
-        int count = 2;
-        int assign = 0;
+            int selection2 = read.nextInt();
+            selection2--;
 
-        while (count > 0){
+            System.out.println(" ");
 
-            assign = roll.nextInt(0, 19);
+            check(pairs, board, selection1, selection2);
 
-            if (pairs[assign] == ' '){
+            System.out.println("Resultado: " + Arrays.toString(board));
 
-                pairs[assign] = 'A';
+            if (check(pairs, board, selection1, selection2)) {
 
-                count--;
+                found++;
 
-            }
+                System.out.println(" ");
+                System.out.println("¡Has encontrado una pareja!");
+                System.out.println(" ");
 
-        }
-
-        return pairs;
-
-    }
-
-    public static char[] assignB(char[] pairs){
-
-        Random roll = new Random();
-
-        int count = 2;
-        int assign = 0;
-
-        while (count > 0){
-
-            assign = roll.nextInt(0, 19);
-
-            if (pairs[assign] == ' '){
-
-                pairs[assign] = 'B';
-
-                count--;
+                uncheck(pairs, board, selection1, selection2);
 
             }
 
         }
 
-        return pairs;
+        System.out.println(" ");
+        System.out.println("-----------------------------------------------");
+        System.out.println("¡Enhorabuena! Has encontrado todas las parejas.");
+        System.out.println("-----------------------------------------------");
 
     }
 
-    public static char[] assignC(char[] pairs){
+    public static void scramble(String[] pairs) {
 
         Random roll = new Random();
 
-        int count = 2;
-        int assign = 0;
+        int num;
+        String temp;
 
-        while (count > 0){
+        for (int i = 0; i < pairs.length; i++) {
 
-            assign = roll.nextInt(0, 19);
+            num = roll.nextInt(0, pairs.length);
 
-            if (pairs[assign] == ' '){
+            temp = pairs[i];
 
-                pairs[assign] = 'C';
+            pairs[i] = pairs[num];
 
-                count--;
-
-            }
+            pairs[num] = temp;
 
         }
-
-        return pairs;
 
     }
 
-    public static char[] assignD(char[] pairs){
+    public static boolean check(String[] pairs, String[] board, int num1, int num2) {
 
-        Random roll = new Random();
+        boolean pair = false;
 
-        int count = 2;
-        int assign = 0;
+        String tempPairs1 = pairs[num1]; //a
+        String tempPairs2 = pairs[num2]; //b
 
-        while (count > 0){
+        pairs[num1] = board[num1]; //a = 1
+        board[num1] = tempPairs1; //1 = a
 
-            assign = roll.nextInt(0, 19);
+        pairs[num2] = board[num2]; //b = 2
+        board[num2] = tempPairs2; //2 = b
 
-            if (pairs[assign] == ' '){
+        if (Objects.equals(pairs[num1], pairs[num2])) {
 
-                pairs[assign] = 'D';
-
-                count--;
-
-            }
+            pair = true;
 
         }
 
-        return pairs;
+        return pair;
 
     }
 
-    public static char[] assignE(char[] pairs){
+    public static void uncheck(String[] pairs, String[] board, int num1, int num2) {
 
-        Random roll = new Random();
+        String tempPairs1 = pairs[num1]; //a
+        String tempPairs2 = pairs[num2]; //b
 
-        int count = 2;
-        int assign = 0;
+        pairs[num1] = board[num1]; //a = 1
+        board[num1] = tempPairs1; //1 = a
 
-        while (count > 0){
-
-            assign = roll.nextInt(0, 19);
-
-            if (pairs[assign] == ' '){
-
-                pairs[assign] = 'E';
-
-                count--;
-
-            }
-
-        }
-
-        return pairs;
-
-    }
-
-    public static char[] assignF(char[] pairs){
-
-        Random roll = new Random();
-
-        int count = 2;
-        int assign = 0;
-
-        while (count > 0){
-
-            assign = roll.nextInt(0, 19);
-
-            if (pairs[assign] == ' '){
-
-                pairs[assign] = 'F';
-
-                count--;
-
-            }
-
-        }
-
-        return pairs;
-
-    }
-
-    public static char[] assignG(char[] pairs){
-
-        Random roll = new Random();
-
-        int count = 2;
-        int assign = 0;
-
-        while (count > 0){
-
-            assign = roll.nextInt(0, 19);
-
-            if (pairs[assign] == ' '){
-
-                pairs[assign] = 'G';
-
-                count--;
-
-            }
-
-        }
-
-        return pairs;
-
-    }
-
-    public static char[] assignH(char[] pairs){
-
-        Random roll = new Random();
-
-        int count = 2;
-        int assign = 0;
-
-        while (count > 0){
-
-            assign = roll.nextInt(0, 19);
-
-            if (pairs[assign] == ' '){
-
-                pairs[assign] = 'H';
-
-                count--;
-
-            }
-
-        }
-
-        return pairs;
-
-    }
-
-    public static char[] assignI(char[] pairs){
-
-        Random roll = new Random();
-
-        int count = 2;
-        int assign = 0;
-
-        while (count > 0){
-
-            assign = roll.nextInt(0, 19);
-
-            if (pairs[assign] == ' '){
-
-                pairs[assign] = 'I';
-
-                count--;
-
-            }
-
-        }
-
-        return pairs;
-
-    }
-
-    public static char[] assignJ(char[] pairs){
-
-        Random roll = new Random();
-
-        int count = 2;
-        int assign = 0;
-
-        while (count > 0){
-
-            assign = roll.nextInt(0, 19);
-
-            if (pairs[assign] == ' '){
-
-                pairs[assign] = 'J';
-
-                count--;
-
-            }
-
-        }
-
-        return pairs;
+        pairs[num2] = board[num2]; //b = 2
+        board[num2] = tempPairs2; //2 = b
 
     }
 
