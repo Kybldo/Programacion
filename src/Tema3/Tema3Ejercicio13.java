@@ -21,8 +21,6 @@ public class Tema3Ejercicio13 {
 
         int roomTemp = room;
 
-        int roomTemp2 = room;
-
         System.out.println("Introduce la intensidad del router (1 - 6):");
 
         int signal = read.nextInt();
@@ -35,35 +33,21 @@ public class Tema3Ejercicio13 {
 
         hotelTemp[room] = signal;
 
-        for (int i = 0; i < signal; i++){
+
+        for (int i = room; i >= 0 && signalTemp > 0; i--){
 
             hotel[room--] = signalTemp--;
 
         }
-
         //------------------------------------------------------------------------
 
-        for (int i = 0; i < signal; i++){
+        for (int i = roomTemp; i < hotel.length && signalTemp2 > 0; i++){
 
-            hotelTemp[roomTemp++] = signalTemp2--;
+            hotel[roomTemp++] = signalTemp2--;
 
         }
 
-        //------------------------------------------------------------------------
-
-        int[] hotelFinal = new int[hotel.length];
-
-        for (int i = 0; i < hotel.length; i++){
-
-            hotelFinal[i] = hotel[i] + hotelTemp[i];
-
-        }
-
-        hotelFinal[roomTemp2] -= signal;
-
-//        System.out.println(Arrays.toString(hotel));
-//        System.out.println(Arrays.toString(hotelTemp));
-        System.out.println(Arrays.toString(hotelFinal));
+        System.out.println(Arrays.toString(hotel));
 
         read.close();
 

@@ -52,7 +52,7 @@ public class MyArray {
         System.out.println("5. Comprobar si un elemento existe o no en un array");
         System.out.println("6. Sumar dos arrays");
         System.out.println("7. Restar dos arrays");
-        System.out.println("8. De verdad Ana qué coño es el producto escalar");
+        System.out.println("8. Multiplicar dos arrays");
         System.out.println("9. Invertir el orden de un array");
         System.out.println("10. Invertir el orden de un array (pero este es un procedimiento)");
         System.out.println("11. Comprobar si un array es capicúa");
@@ -285,7 +285,52 @@ public class MyArray {
 
             }
 
-            case 8 -> System.out.println("Ana por favor te lo pido");
+            case 8 -> {
+
+                System.out.println("Este programa necesita dos arrays. Los dos arrays tienen que ser del mismo tamaño.");
+
+                System.out.println("Vas a crear el primer array; introduce el número de elementos que quieres que tenga:");
+
+                int userLength1 = read.nextInt();
+
+                System.out.println(" ");
+
+                int[] userArray1 = new int[userLength1];
+
+                for (int i = 0; i < userLength1; i++){
+
+                    System.out.println("Introduce el valor del elemento " + i + " del primer array:");
+
+                    userArray1[i] = read.nextInt();
+
+                }
+
+                System.out.println(" ");
+
+                // Se crea el segundo array ------------------------------------------------------------------------------------------
+
+                System.out.println("Vas a crear el segundo array; introduce el número de elementos que quieres que tenga:");
+
+                int userLength2 = read.nextInt();
+
+                System.out.println(" ");
+
+                int[] userArray2 = new int[userLength2];
+
+                for (int i = 0; i < userLength2; i++){
+
+                    System.out.println("Introduce el valor del elemento " + i + " del segundo array:");
+
+                    userArray2[i] = read.nextInt();
+
+                }
+
+                System.out.println(" ");
+
+                System.out.println("La multiplicación de los dos arrays resulta en:");
+                System.out.println(Arrays.toString(arrayMultiply(userArray1, userArray2)));
+
+            }
 
             case 9 -> {
 
@@ -491,6 +536,19 @@ public class MyArray {
     }
 
     // h) Qué coño es un producto escalar
+    public static int[] arrayMultiply(int[] array1, int[] array2){
+
+        int[] arrayMultiply = new int[array1.length];
+
+        for (int i = 0; i < array1.length; i++){
+
+            arrayMultiply[i] = array1[i] * array2[i];
+
+        }
+
+        return arrayMultiply;
+
+    }
 
     // i) Invierte el orden de un array
     public static int[] arrayInvert(int[] array){

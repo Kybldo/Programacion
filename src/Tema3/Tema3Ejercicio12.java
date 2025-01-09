@@ -15,7 +15,7 @@ public class Tema3Ejercicio12 {
 
         Random roll = new Random();
 
-        int flyNumber = roll.nextInt(0, 14);
+        int flyNumber = roll.nextInt(flyArray.length);
 
         flyArray[flyNumber] = 1;
 
@@ -42,7 +42,7 @@ public class Tema3Ejercicio12 {
 
                     flyArray[flyNumber] = 0;
 
-                    flyNumber = roll.nextInt(0, 14);
+                    flyNumber = roll.nextInt(flyArray.length);
 
                     flyArray[flyNumber] = 1;
 
