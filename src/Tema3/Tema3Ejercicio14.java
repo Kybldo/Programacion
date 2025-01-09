@@ -30,10 +30,42 @@ public class Tema3Ejercicio14 {
             System.out.println(Arrays.toString(board));
             System.out.println(" ");
 
-            int selection1 = read.nextInt();
+            int selection1 = 0;
+
+            while (selection1 == 0 || selection1 > 20){
+
+                System.out.println("Primer número:");
+
+                selection1  = read.nextInt();
+
+                if (selection1 == 0 || selection1 > 20){
+
+                    System.out.println("Introduce un número válido.");
+                    System.out.println(" ");
+
+                }
+
+            }
+
             selection1--;
 
-            int selection2 = read.nextInt();
+            int selection2 = 0;
+
+            while (selection2 == 0 || selection2 > 20){
+
+                System.out.println("Segundo número:");
+
+                selection2  = read.nextInt();
+
+                if (selection2 == 0 || selection2 > 20){
+
+                    System.out.println("Introduce un número válido.");
+                    System.out.println(" ");
+
+                }
+
+            }
+
             selection2--;
 
             System.out.println(" ");
