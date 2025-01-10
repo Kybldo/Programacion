@@ -7,40 +7,6 @@ public class MyArray {
 
     public static void main(String[] args) {
 
-        /*
-
-        int[] numbers = {1, 9, 3, 12, -3, 6};
-
-        int[] numbers2 = {12, 24, 23};
-
-        int[] numbers3 = {54, 25, 6};
-
-        int[] capi = {1, 2, 3, 2, 1};
-
-        int num = 3;
-
-        printArray(numbers);
-
-        System.out.println(arrayMax(numbers));
-
-        System.out.println(arrayMin(numbers));
-
-        System.out.println(arrayAvg(numbers));
-
-        System.out.println(arrayCheck(numbers, num));
-
-        System.out.println(Arrays.toString(arraySum(numbers2, numbers3)));
-
-        System.out.println(Arrays.toString(arraySubtract(numbers2, numbers3)));
-
-        System.out.println(Arrays.toString(arrayInvert(numbers)));
-
-        procArrayInvert(numbers);
-
-        System.out.println(arrayCapi(capi));
-
-         */
-
         Scanner read = new Scanner(System.in);
 
         System.out.println("Selecciona un programa:");
