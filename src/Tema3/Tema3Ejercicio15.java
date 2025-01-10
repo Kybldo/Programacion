@@ -13,17 +13,23 @@ public class Tema3Ejercicio15 {
 
         Random roll = new Random();
 
-        String[] mines = new String[20];
+        int[] mines = new int[20];
 
-        Arrays.fill(mines, " ");
+        String[] minesFilled = new String[20];
 
         scrambleMines(mines);
 
+        addNumbers(mines);
 
+        intToString(mines, minesFilled);
+
+        numToMines(minesFilled);
+
+        System.out.println(Arrays.toString(minesFilled));
 
     }
 
-    public static void scrambleMines(String[] mines) {
+    public static void scrambleMines(int[] mines) {
 
         Random roll = new Random();
 
@@ -33,9 +39,9 @@ public class Tema3Ejercicio15 {
 
             int positionRoll = roll.nextInt(0, mines.length);
 
-            if (Objects.equals(mines[positionRoll], " ")){
+            if (mines[positionRoll] == 0){
 
-                mines[positionRoll] = "*";
+                mines[positionRoll] = 7;
 
                 minesPlaced++;
 
@@ -45,30 +51,64 @@ public class Tema3Ejercicio15 {
 
     }
 
-    public static void addNumbers(String[] mines){
+    public static void addNumbers(int[] mines) {
 
-        for (int i = 0; i < mines.length; i++){
+        for (int i = 0; i < mines.length; i++) {
 
-            if (Objects.equals(mines[i], "*") && Objects.equals(mines[i--], " ") && Objects.equals(mines[i++], " ")){
+            if (i == 0){
 
-                mines[i--] = "1";
-                mines[i++] = "1";
+                if (mines[i] == 7){
 
-            } else if (Objects.equals(mines[i], "*") && Objects.equals(mines[i--], "*") && Objects.equals(mines[i++], " ")) {
+                    mines[i + 1]++;
 
-                mines[i--] = "1";
-                mines[i++] = "0";
+                }
 
-            } else if (Objects.equals(mines[i], "*") && Objects.equals(mines[i--], " ") && Objects.equals(mines[i++], "*")) {
+            } else if (i == 19) {
 
-                mines[i--] = "0";
-                mines[i++] = "1";
+                if (mines[i] == 7 || mines[i] == 8){
 
-            } else if (Objects.equals(mines[i], " ") && Objects.equals(mines[i--], "*") && Objects.equals(mines[i++], "*")) {
+                    mines[i - 1]++;
 
-                mines[i] = "2";
+                }
 
-            } else mines[i] = "0";
+            } else {
+
+                if (mines[i] == 7 || mines[i] == 8){
+
+                    mines[i + 1]++;
+                    mines[i - 1]++;
+
+                }
+
+            }
+
+        }
+
+    }
+
+    public static void intToString(int[] mines, String[] minesFilled){
+
+        for (int i = 0; i < minesFilled.length; i++){
+
+            int temp = 0;
+
+            temp = Integer.parseInt(String.valueOf(mines[i]));
+
+            minesFilled[i] = String.valueOf(temp);
+
+        }
+
+    }
+
+    public static void numToMines(String[] minesFilled){
+
+        for (int i = 0; i < minesFilled.length; i++){
+
+            if (Objects.equals(minesFilled[i], "7") || Objects.equals(minesFilled[i], "8")){
+
+                minesFilled[i] = "*";
+
+            }
 
         }
 
