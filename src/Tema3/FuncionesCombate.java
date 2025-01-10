@@ -91,10 +91,106 @@ public class FuncionesCombate {
 
     }
 
-    public static void combatMenu(String className){
+    public static void combatMenuJ1(String className){
 
         System.out.println("Jugador 1" + " (" + className + ")" + " - Elige una acción:");
         System.out.println("1. Ataque | 2. Regenerar | 3. Pedir Perdón | 4. Canalizar | 5. Reflejar");
+        System.out.println(" ");
+
+    }
+
+    public static void combatMenuJ2(String className){
+
+        System.out.println("Jugador 2" + " (" + className + ")" + " - Elige una acción:");
+        System.out.println("1. Ataque | 2. Regenerar | 3. Pedir Perdón | 4. Canalizar | 5. Reflejar");
+        System.out.println(" ");
+
+    }
+
+    public static void statOverflow(){
+
+        System.out.println("Ninguno de tus atributos puede ser 0, negativo, o superar 200.");
+        System.out.println(" ");
+
+    }
+
+    public static void statMaxOverflow(){
+
+        System.out.println("La suma total de los atributos no puede superar 500.");
+        System.out.println(" ");
+
+    }
+
+    public static void statCheck(int statsTotal, int statsLeft){
+
+        if (statsTotal > 500) {
+            System.out.println("Cuidado: Te has pasado del límite de puntos asignables. Termina la asignación y vuelve a empezar.");
+        } else if (statsLeft <= 0) {
+            System.out.println("Cuidado: No te quedan puntos por asignar. Termina la asignación y vuelve a empezar.");
+        } else System.out.println("Te quedan " + statsLeft + " por asignar.");
+        System.out.println(" ");
+
+    }
+
+    public static void characterPreview(String p1_className, int p1_health, int p1_attack, int p1_defense, int p1_speed, String p2_className, int p2_health, int p2_attack, int p2_defense, int p2_speed){
+
+        System.out.println("Jugador 1" + " (" + p1_className + ")" + ":");
+        System.out.println("Vida: " + p1_health + " Ataque: " + p1_attack + " Defensa: " + p1_defense + " Velocidad: " + p1_speed);
+        System.out.println(" ");
+        System.out.println("Jugador 2" + " (" + p2_className + ")" + ":");
+        System.out.println("Vida: " + p2_health + " Ataque: " + p2_attack + " Defensa: " + p2_defense + " Velocidad: " + p2_speed);
+        System.out.println(" ");
+
+    }
+
+    public static int startingTurn(int p1_speed, int p2_speed){
+
+        int turn = 0;
+
+        if (p1_speed > p2_speed) {
+            turn = 1;
+        } else turn = 2;
+
+        return turn;
+
+    }
+
+    public static void roundCounter(int round){
+
+        System.out.println(" ");
+        System.out.print("RONDA " + round);
+
+    }
+
+    public static void turnCounter(int turn){
+
+        if (turn == 1){
+
+            System.out.print(" - TURNO DEL JUGADOR 1");
+
+        } else System.out.print(" - TURNO DEL JUGADOR 2");
+
+        System.out.println(" ");
+
+    }
+
+    public static void healthCombatDisplay(String p1_className, int p1_health, String p2_className, int p2_health){
+
+        System.out.println("Jugador 1" + " (" + p1_className + ")");
+        System.out.print("Vida: " + p1_health + " ");
+
+        for (int i = 0; i < p1_health; i = i + 2){
+            System.out.print("■");
+        }
+
+        System.out.println(" ");
+        System.out.println("Jugador 2" + " (" + p2_className + ")");
+        System.out.print("Vida: " + p2_health + " ");
+
+        for (int i = 0; i < p2_health; i = i + 2){
+            System.out.print("■");
+        }
+
         System.out.println(" ");
 
     }
@@ -136,6 +232,197 @@ public class FuncionesCombate {
         System.out.println(" ");
 
         return attackCalc;
+
+    }
+
+    public static int regen(int regenRoll, double regenChance, int regen, int healthMAX){
+
+        Random roll = new Random();
+
+        regenRoll = roll.nextInt(1, 3);
+        regenChance = roll.nextDouble(0.5, 0.9);
+
+        regen = (int) (regenRoll + (healthMAX * regenChance) * 0.2);
+
+        return regen;
+
+    }
+
+    public static void maxHealthCheck(int health, int healthMAX){
+
+        if (health > healthMAX) {
+
+            health = healthMAX;
+
+            System.out.println("Tu vida está al máximo.");
+            System.out.println(" ");
+
+        }
+
+    }
+
+    public static void regenGraphic(){
+
+        System.out.println("""
+                                        
+                                                                  \s
+                                           _                _     \s
+                                         _| |_            _| |_   \s
+                                        |_   _|          |_   _|  \s
+                                          |_|              |_|    \s
+                                                                  \s
+                                                                  \s
+                                                     _            \s
+                                                   _| |_          \s
+                                                  |_   _|         \s
+                                                    |_|           \s
+                                                                  \s
+                                                                  \s
+                                              _                _  \s
+                                            _| |_            _| |_\s
+                                           |_   _|          |_   _|
+                                             |_|              |_| \s
+                                                                  \s
+                                        """);
+
+    }
+
+    public static int forgive(int pity){
+
+        Random roll = new Random();
+
+        System.out.println("""
+                                              _.-/`)
+                                             // / / )
+                                          .=// / / / )
+                                         //`/ / / / /
+                                        // /     ` /
+                                       ||         /
+                                        \\\\       /
+                                         ))    .'
+                                        //    /
+                                             /""");
+        System.out.println(" ");
+
+        System.out.println("¡Pides perdón!");
+
+        pity = roll.nextInt(0, 101);
+
+        return pity;
+
+    }
+
+    public static int channeling(double channeling){
+
+        System.out.println("¡Has canalizado energía!");
+        System.out.println("Tu siguiente ataque será más poderoso.");
+        System.out.println(" ");
+
+        channeling = 2;
+
+        return (int) channeling;
+
+    }
+
+    public static void turnWasted(){
+
+        System.out.println(" ");
+        System.out.println("Desperdiciaste el turno.");
+        System.out.println(" ");
+
+    }
+
+    public static int computerAI(int p1_attackCalc, int choice_p2, double p2_channeling, int p2_healthMAX, int computerHealthRoll){
+
+        Random roll = new Random();
+
+        if (p1_attackCalc == 0) {
+
+            choice_p2 = 1;
+
+        } else choice_p2 = roll.nextInt(1, 3);
+
+        if (choice_p2 == 2) choice_p2 = 4;
+
+        if (p2_channeling == 2) choice_p2 = 1;
+
+        if (p1_attackCalc > 14) choice_p2 = 5;
+
+        if (p2_healthMAX < p2_healthMAX / 2) {
+
+            computerHealthRoll = roll.nextInt(1, 3);
+
+            if (computerHealthRoll == 2) choice_p2 = 2;
+
+        } else choice_p2 = 1;
+
+        return choice_p2;
+
+    }
+
+    public static void winCheckCOM(int p1_health, int p2_health){
+
+        if (p1_health > p2_health){
+            System.out.println("¡Ha ganado el jugador 1!");
+
+        } else System.out.println("¡Ha ganado la máquina!");
+
+    }
+
+    public static void winCheckPJ(int p1_health, int p2_health){
+
+        if (p1_health > p2_health){
+            System.out.println("¡Ha ganado el jugador 1!");
+
+        } else System.out.println("¡Ha ganado el jugador 2!");
+
+    }
+
+    public static int doubleTurnP1(int p1_speed, int p2_speed, int p1_speedRoll, int turn, int p2_health){
+
+        Random roll = new Random();
+
+        if (p1_speed > p2_speed) {
+
+            p1_speedRoll = roll.nextInt(1, 5);
+
+            if (p1_speedRoll == 4) {
+
+                turn = 1;
+
+                System.out.println("■ ! ■ ! ■ ¡Eres más rápido que tu oponente! Actúas otro turno. ■ ! ■ ! ■");
+                System.out.println(" ");
+
+            }
+
+            if (p2_health == 0) turn = 2;
+        }
+
+        return turn;
+
+    }
+
+    public static int doubleTurnP2(int p2_speed, int p1_speed, int p2_speedRoll, int turn, int p1_health){
+
+        Random roll = new Random();
+
+        if (p2_speed > p1_speed) {
+
+            p2_speedRoll = roll.nextInt(1, 5);
+
+            if (p2_speedRoll == 4) {
+
+                turn = 2;
+
+                System.out.println("■ ! ■ ! ■ ¡Eres más rápido que tu oponente! Actúas otro turno. ■ ! ■ ! ■");
+                System.out.println(" ");
+
+            }
+
+            if (p1_health == 0) turn = 1;
+        }
+
+        return turn;
 
     }
 

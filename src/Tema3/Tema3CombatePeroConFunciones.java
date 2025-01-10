@@ -19,7 +19,7 @@ public class Tema3CombatePeroConFunciones {
         boolean computer = false;
         String computerTurn;
         int computerAI = 0;
-        int computerHealthRoll;
+        int computerHealthRoll = 0;
 
         int gamemode = 0;
 
@@ -41,12 +41,12 @@ public class Tema3CombatePeroConFunciones {
         int p1_speed = 0;
         int p1_statsLeft;
 
-        int p1_regen;
-        int p1_regenRoll;
-        double p1_regenChance;
+        int p1_regen = 0;
+        int p1_regenRoll = 0;
+        double p1_regenChance = 0;
         int p1_healthMAX = 0;
 
-        int p1_pity;
+        int p1_pity = 0;
         double p1_channeling = 1;
         int p1_counter = 0;
         int p1_counterRoll;
@@ -56,7 +56,7 @@ public class Tema3CombatePeroConFunciones {
         double p1_attackChance = 0;
         double p1_defenseChance = 0;
 
-        int p1_speedRoll;
+        int p1_speedRoll = 0;
 
         //Atributos y variables para cálculos del segundo jugador.
         int p2_statsTotal = 0;
@@ -66,12 +66,12 @@ public class Tema3CombatePeroConFunciones {
         int p2_speed = 0;
         int p2_statsLeft;
 
-        int p2_regen;
-        int p2_regenRoll;
-        double p2_regenChance;
+        int p2_regen = 0;
+        int p2_regenRoll = 0;
+        double p2_regenChance = 0;
         int p2_healthMAX = 0;
 
-        int p2_pity;
+        int p2_pity = 0;
         double p2_channeling = 1;
         int p2_counter = 0;
         int p2_counterRoll;
@@ -81,7 +81,9 @@ public class Tema3CombatePeroConFunciones {
         double p2_attackChance = 0;
         double p2_defenseChance = 0;
 
-        int p2_speedRoll;
+        int p2_speedRoll = 0;
+
+        //---------------------------------------------------------------------------------------------------------------------------------------
 
         //Título del juego.
         FuncionesCombate.title();
@@ -342,10 +344,7 @@ public class Tema3CombatePeroConFunciones {
 
                             p1_healthMAX = p1_health;
 
-                            if (p1_health <= 0 || p1_health > 200) {
-                                System.out.println("Ninguno de tus atributos puede ser 0, negativo, o superar 200.");
-                                System.out.println(" ");
-                            }
+                            if (p1_health <= 0 || p1_health > 200) FuncionesCombate.statOverflow();
                         }
 
                         p1_statsTotal = p1_health;
@@ -360,10 +359,7 @@ public class Tema3CombatePeroConFunciones {
                             System.out.println("Ataque:");
                             p1_attack = read.nextInt();
 
-                            if (p1_attack <= 0 || p1_attack > 200) {
-                                System.out.println("Ninguno de tus atributos puede ser 0, negativo, o superar 200.");
-                                System.out.println(" ");
-                            }
+                            if (p1_attack <= 0 || p1_attack > 200) FuncionesCombate.statOverflow();
                         }
 
                         p1_statsTotal += p1_attack;
@@ -378,10 +374,7 @@ public class Tema3CombatePeroConFunciones {
                             System.out.println("Defensa:");
                             p1_defense = read.nextInt();
 
-                            if (p1_defense <= 0 || p1_defense > 200) {
-                                System.out.println("Ninguno de tus atributos puede ser 0, negativo, o superar 200.");
-                                System.out.println(" ");
-                            }
+                            if (p1_defense <= 0 || p1_defense > 200) FuncionesCombate.statOverflow();
                         }
 
                         p1_statsTotal += p1_defense;
@@ -390,21 +383,13 @@ public class Tema3CombatePeroConFunciones {
 
                         p1_statsLeft -= p1_defense;
 
-                        if (p1_statsTotal > 500) {
-                            System.out.println("Cuidado: Te has pasado del límite de puntos asignables. Termina la asignación y vuelve a empezar.");
-                        } else if (p1_statsLeft <= 0) {
-                            System.out.println("Cuidado: No te quedan puntos por asignar. Termina la asignación y vuelve a empezar.");
-                        } else System.out.println("Te quedan " + p1_statsLeft + " por asignar.");
-                        System.out.println(" ");
+                        FuncionesCombate.statCheck(p1_statsTotal, p1_statsLeft);
 
                         while (p1_speed <= 0 || p1_speed > 200) {
                             System.out.println("Velocidad:");
                             p1_speed = read.nextInt();
 
-                            if (p1_speed <= 0 || p1_speed > 200) {
-                                System.out.println("Ninguno de tus atributos puede ser 0, negativo, o superar 200.");
-                                System.out.println(" ");
-                            }
+                            if (p1_speed <= 0 || p1_speed > 200) FuncionesCombate.statOverflow();
                         }
 
                         p1_statsTotal += p1_speed;
@@ -412,10 +397,7 @@ public class Tema3CombatePeroConFunciones {
                         System.out.println("El total de atributos del primer jugador es: " + p1_statsTotal);
                         System.out.println(" ");
 
-                        if (p1_statsTotal > 500) {
-                            System.out.println("La suma total de los atributos no puede superar 500.");
-                            System.out.println(" ");
-                        }
+                        if (p1_statsTotal > 500) FuncionesCombate.statMaxOverflow();
                     }
 
                     //Asignación manual del segundo jugador.
@@ -441,10 +423,7 @@ public class Tema3CombatePeroConFunciones {
 
                             p2_healthMAX = p2_health;
 
-                            if (p2_health <= 0 || p2_health > 200) {
-                                System.out.println("Ninguno de tus atributos puede ser 0, negativo, o superar 200.");
-                                System.out.println(" ");
-                            }
+                            if (p2_health <= 0 || p2_health > 200) FuncionesCombate.statOverflow();
                         }
 
                         p2_statsTotal = p2_health;
@@ -459,10 +438,7 @@ public class Tema3CombatePeroConFunciones {
                             System.out.println("Ataque:");
                             p2_attack = read.nextInt();
 
-                            if (p2_attack <= 0 || p2_attack > 200) {
-                                System.out.println("Ninguno de tus atributos puede ser 0, negativo, o superar 200.");
-                                System.out.println(" ");
-                            }
+                            if (p2_attack <= 0 || p2_attack > 200) FuncionesCombate.statOverflow();
                         }
 
                         p2_statsTotal += p2_attack;
@@ -477,10 +453,7 @@ public class Tema3CombatePeroConFunciones {
                             System.out.println("Defensa:");
                             p2_defense = read.nextInt();
 
-                            if (p2_defense <= 0 || p2_defense > 200) {
-                                System.out.println("Ninguno de tus atributos puede ser 0, negativo, o superar 200.");
-                                System.out.println(" ");
-                            }
+                            if (p2_defense <= 0 || p2_defense > 200) FuncionesCombate.statOverflow();
                         }
 
                         p2_statsTotal += p2_defense;
@@ -488,21 +461,13 @@ public class Tema3CombatePeroConFunciones {
                         System.out.println(" ");
                         p2_statsLeft -= p2_defense;
 
-                        if (p2_statsTotal > 500) {
-                            System.out.println("Cuidado: Te has pasado del límite de puntos asignables. Termina la asignación y vuelve a empezar.");
-                        } else if (p2_statsLeft <= 0) {
-                            System.out.println("Cuidado: No te quedan puntos por asignar. Termina la asignación y vuelve a empezar.");
-                        } else System.out.println("Te quedan " + p2_statsLeft + " por asignar.");
-                        System.out.println(" ");
+                        FuncionesCombate.statCheck(p2_statsTotal, p2_statsLeft);
 
                         while (p2_speed <= 0 || p2_speed > 200) {
                             System.out.println("Velocidad:");
                             p2_speed = read.nextInt();
 
-                            if (p2_speed <= 0 || p2_speed > 200) {
-                                System.out.println("Ninguno de tus atributos puede ser 0, negativo, o superar 200.");
-                                System.out.println(" ");
-                            }
+                            if (p2_speed <= 0 || p2_speed > 200) FuncionesCombate.statOverflow();
                         }
 
                         p2_statsTotal += p2_speed;
@@ -510,10 +475,7 @@ public class Tema3CombatePeroConFunciones {
                         System.out.println("El total de atributos del segundo jugador es: " + p2_statsTotal);
                         System.out.println(" ");
 
-                        if (p2_statsTotal > 500) {
-                            System.out.println("La suma total de los atributos no puede superar 500.");
-                            System.out.println(" ");
-                        }
+                        if (p2_statsTotal > 500) FuncionesCombate.statMaxOverflow();
                     }
                 }
 
@@ -526,17 +488,10 @@ public class Tema3CombatePeroConFunciones {
         System.out.println(" ");
 
         //Presenta las estadísticas antes de empezar la partida.
-        System.out.println("Jugador 1" + " (" + p1_className + ")" + ":");
-        System.out.println("Vida: " + p1_health + " Ataque: " + p1_attack + " Defensa: " + p1_defense + " Velocidad: " + p1_speed);
-        System.out.println(" ");
-        System.out.println("Jugador 2" + " (" + p2_className + ")" + ":");
-        System.out.println("Vida: " + p2_health + " Ataque: " + p2_attack + " Defensa: " + p2_defense + " Velocidad: " + p2_speed);
-        System.out.println(" ");
+        FuncionesCombate.characterPreview(p1_className, p1_health, p1_attack, p1_defense, p1_speed, p2_className, p2_health, p2_attack, p2_defense, p2_speed);
 
         //Decide el orden del primer turno.
-        if (p1_speed > p2_speed) {
-            turn = 1;
-        } else turn = 2;
+        turn = FuncionesCombate.startingTurn(p1_speed, p2_speed);
 
         //El bucle de la pelea.
         while (p1_health > 0 || p2_health > 0) {
@@ -545,24 +500,17 @@ public class Tema3CombatePeroConFunciones {
 
             //Aumenta e imprime las rondas transcurridas.
             round++;
-            System.out.println(" ");
-            System.out.print("RONDA " + round);
+            FuncionesCombate.roundCounter(round);
 
             //Decide el turno inicial.
-            if (turn == 1){
-
-                System.out.print(" - TURNO DEL JUGADOR 1");
-
-            } else System.out.print(" - TURNO DEL JUGADOR 2");
-
-            System.out.println(" ");
+            FuncionesCombate.turnCounter(turn);
 
             //Acciones del primer jugador. Se entrará en el switch si la variable "turn" equivale a 1.
             switch (turn){
 
                 case 1 -> {
 
-                    FuncionesCombate.combatMenu(p1_className);
+                    FuncionesCombate.combatMenuJ1(p1_className);
 
                     choice_p1 = read.nextInt();
 
@@ -587,10 +535,7 @@ public class Tema3CombatePeroConFunciones {
 
                         case 2 -> {
 
-                            p1_regenRoll = roll.nextInt(1, 3);
-                            p1_regenChance = roll.nextDouble(0.5, 0.9);
-
-                            p1_regen = (int) (p1_regenRoll + (p1_healthMAX * p1_regenChance) * 0.2);
+                            p1_regen = FuncionesCombate.regen(p1_regenRoll, p1_regenChance, p1_regen, p1_healthMAX);
 
                             if (p1_healthMAX == p1_health){
 
@@ -600,60 +545,18 @@ public class Tema3CombatePeroConFunciones {
 
                                 p1_health += p1_regen;
 
-                                System.out.println("""
-                                        
-                                                                  \s
-                                           _                _     \s
-                                         _| |_            _| |_   \s
-                                        |_   _|          |_   _|  \s
-                                          |_|              |_|    \s
-                                                                  \s
-                                                                  \s
-                                                     _            \s
-                                                   _| |_          \s
-                                                  |_   _|         \s
-                                                    |_|           \s
-                                                                  \s
-                                                                  \s
-                                              _                _  \s
-                                            _| |_            _| |_\s
-                                           |_   _|          |_   _|
-                                             |_|              |_| \s
-                                                                  \s
-                                        """);
+                                FuncionesCombate.regenGraphic();
 
                                 System.out.println("Has regenerado " + p1_regen + " puntos de vida.");
                                 System.out.println(" ");
 
-                                if (p1_health > p1_healthMAX){
-
-                                    p1_health = p1_healthMAX;
-
-                                    System.out.println("Tu vida está al máximo.");
-                                    System.out.println(" ");
-
-                                }
+                                FuncionesCombate.maxHealthCheck(p1_health, p1_healthMAX);
                             }
                         }
 
                         case 3 -> {
 
-                            System.out.println("""
-                                              _.-/`)
-                                             // / / )
-                                          .=// / / / )
-                                         //`/ / / / /
-                                        // /     ` /
-                                       ||         /
-                                        \\\\       /
-                                         ))    .'
-                                        //    /
-                                             /""");
-                            System.out.println(" ");
-
-                            System.out.println("¡Pides perdón!");
-
-                            p1_pity = roll.nextInt(0, 101);
+                            p1_pity = FuncionesCombate.forgive(p1_pity);
 
                             if (p1_pity == 100){
 
@@ -666,15 +569,7 @@ public class Tema3CombatePeroConFunciones {
 
                         }
 
-                        case 4 -> {
-
-                            System.out.println("¡Has canalizado energía!");
-                            System.out.println("Tu siguiente ataque será más poderoso.");
-                            System.out.println(" ");
-
-                            p1_channeling = 2;
-
-                        }
+                        case 4 -> p1_channeling = FuncionesCombate.channeling(p1_channeling);
 
                         case 5 -> {
 
@@ -713,50 +608,15 @@ public class Tema3CombatePeroConFunciones {
                             }
                         }
 
-                        default -> {
-
-                            System.out.println(" ");
-                            System.out.println("Desperdiciaste el turno.");
-                            System.out.println(" ");
-
-                        }
+                        default -> FuncionesCombate.turnWasted();
 
                     }
 
                     turn = 2;
 
-                    if (p1_speed > p2_speed) {
+                    turn = FuncionesCombate.doubleTurnP1(p1_speed, p2_speed, p1_speedRoll, turn, p2_health);
 
-                        p1_speedRoll = roll.nextInt(1, 5);
-
-                        if (p1_speedRoll == 4) {
-
-                            turn = 1;
-
-                            System.out.println("■ ! ■ ! ■ ¡Eres más rápido que tu oponente! Actúas otro turno. ■ ! ■ ! ■");
-                            System.out.println(" ");
-
-                        }
-
-                        if (p2_health == 0) turn = 2;
-                    }
-
-                    System.out.println("Jugador 1" + " (" + p1_className + ")");
-                    System.out.print("Vida: " + p1_health + " ");
-
-                    for (int i = 0; i < p1_health; i = i + 2){
-                        System.out.print("■");
-                    }
-
-                    System.out.println(" ");
-                    System.out.println("Jugador 2" + " (" + p2_className + ")");
-                    System.out.print("Vida: " + p2_health + " ");
-
-                    for (int i = 0; i < p2_health; i = i + 2){
-                        System.out.print("■");
-                    }
-
-                    System.out.println(" ");
+                    FuncionesCombate.healthCombatDisplay(p1_className, p1_health, p2_className, p2_health);
 
                     if (computer){
 
@@ -773,42 +633,18 @@ public class Tema3CombatePeroConFunciones {
                 //Acciones del segundo jugador. Se entrará en el switch si la variable "turn" equivale a 2.
                 case 2 -> {
 
-                   if (computer){
+                    if (computer) {
 
-                        switch (computerAI){
+                        switch (computerAI) {
 
                             case 1 -> choice_p2 = roll.nextInt(1, 6);
 
-                            case 2 -> {
-
-                                if (p1_attackCalc == 0) {
-
-                                    choice_p2 = 1;
-
-                                } else choice_p2 = roll.nextInt(1, 3);
-
-                                if (choice_p2 == 2) choice_p2 = 4;
-
-                                if (p2_channeling == 2) choice_p2 = 1;
-
-                                if (p1_attackCalc > 14) choice_p2 = 5;
-
-                                if (p2_healthMAX < p2_healthMAX / 2) {
-
-                                    computerHealthRoll = roll.nextInt(1, 3);
-
-                                    if (computerHealthRoll == 2) choice_p2 = 2;
-
-                                } else choice_p2 = 1;
-
-                            }
+                            case 2 -> choice_p2 = FuncionesCombate.computerAI(p1_attackCalc, choice_p2, p2_channeling, p2_healthMAX, computerHealthRoll);
                         }
 
                     } else {
 
-                        System.out.println("Jugador 2" + " (" + p2_className + ")" + " - Elige una acción:");
-                        System.out.println("1. Ataque | 2. Regenerar | 3. Pedir Perdón | 4. Canalizar | 5. Reflejar");
-                        System.out.println(" ");
+                        FuncionesCombate.combatMenuJ2(p2_className);
 
                         choice_p2 = read.nextInt();
 
@@ -835,12 +671,9 @@ public class Tema3CombatePeroConFunciones {
 
                         case 2 -> {
 
-                            p2_regenRoll = roll.nextInt(1, 3);
-                            p2_regenChance = roll.nextDouble(0.5, 0.9);
+                            p2_regen = FuncionesCombate.regen(p2_regenRoll, p2_regenChance, p2_regen, p2_healthMAX);
 
-                            p2_regen = (int) (p2_regenRoll + (p2_healthMAX * p2_regenChance) * 0.2);
-
-                            if (p2_healthMAX == p2_health){
+                            if (p2_healthMAX == p2_health) {
 
                                 System.out.println("Tu vida está al máximo. No puedes regenarar.");
 
@@ -848,62 +681,20 @@ public class Tema3CombatePeroConFunciones {
 
                                 p2_health += p2_regen;
 
-                                System.out.println("""
-                                        
-                                                                  \s
-                                           _                _     \s
-                                         _| |_            _| |_   \s
-                                        |_   _|          |_   _|  \s
-                                          |_|              |_|    \s
-                                                                  \s
-                                                                  \s
-                                                     _            \s
-                                                   _| |_          \s
-                                                  |_   _|         \s
-                                                    |_|           \s
-                                                                  \s
-                                                                  \s
-                                              _                _  \s
-                                            _| |_            _| |_\s
-                                           |_   _|          |_   _|
-                                             |_|              |_| \s
-                                                                  \s
-                                        """);
+                                FuncionesCombate.regenGraphic();
 
                                 System.out.println("Has regenerado " + p2_regen + " puntos de vida.");
                                 System.out.println(" ");
 
-                                if (p2_health > p2_healthMAX) {
-
-                                    p2_health = p2_healthMAX;
-
-                                    System.out.println("Tu vida está al máximo.");
-                                    System.out.println(" ");
-
-                                }
+                                FuncionesCombate.maxHealthCheck(p2_health, p2_healthMAX);
                             }
                         }
 
                         case 3 -> {
 
-                            System.out.println("""
-                                              _.-/`)
-                                             // / / )
-                                          .=// / / / )
-                                         //`/ / / / /
-                                        // /     ` /
-                                       ||         /
-                                        \\\\       /
-                                         ))    .'
-                                        //    /
-                                             /""");
-                            System.out.println(" ");
+                            p2_pity = FuncionesCombate.forgive(p2_pity);
 
-                            System.out.println("¡Pides perdón!");
-
-                            p2_pity = roll.nextInt(0, 101);
-
-                            if (p2_pity == 100){
+                            if (p2_pity == 100) {
 
                                 System.out.println("¡El enemigo se compadece de ti y te deja ganar la pelea!");
                                 p1_health = 0;
@@ -914,19 +705,11 @@ public class Tema3CombatePeroConFunciones {
 
                         }
 
-                        case 4 -> {
-
-                            System.out.println("¡Has canalizado energía!");
-                            System.out.println("Tu siguiente ataque será más poderoso.");
-                            System.out.println(" ");
-
-                            p2_channeling = 2;
-
-                        }
+                        case 4 -> p2_channeling = FuncionesCombate.channeling(p2_channeling);
 
                         case 5 -> {
 
-                            if (p1_attackCalc == 0){
+                            if (p1_attackCalc == 0) {
 
                                 System.out.println("El enemigo todavía no te ha atacado. No has podido absorber.");
                                 System.out.println(" ");
@@ -961,51 +744,16 @@ public class Tema3CombatePeroConFunciones {
                             }
                         }
 
-                        default -> {
-
-                            System.out.println(" ");
-                            System.out.println("Desperdiciaste el turno.");
-                            System.out.println(" ");
-
-                        }
+                        default -> FuncionesCombate.turnWasted();
 
                     }
 
                     turn = 1;
 
-                    if (p2_speed > p1_speed) {
+                    turn = FuncionesCombate.doubleTurnP2(p2_speed, p1_speed, p2_speedRoll, turn, p1_health);
 
-                        p2_speedRoll = roll.nextInt(1, 5);
-
-                        if (p2_speedRoll == 4) {
-
-                            turn = 2;
-
-                            System.out.println("■ ! ■ ! ■ ¡Eres más rápido que tu oponente! Actúas otro turno. ■ ! ■ ! ■");
-                            System.out.println(" ");
-
-                        }
-
-                        if (p1_health == 0) turn = 1;
-                    }
-
-                    System.out.println("Jugador 1" + " (" + p1_className + ")");
-                    System.out.println("Vida: " + p1_health + " ");
-
-                    for (int i = 0; i < p1_health; i = i + 2){
-                        System.out.print("■");
-                    }
-
-                    System.out.println(" ");
-                    System.out.println("Jugador 2" + " (" + p2_className + ")");
-                    System.out.println("Vida: " + p2_health + " ");
-
-                    for (int i = 0; i < p2_health; i = i + 2){
-                        System.out.print("■");
-                    }
-
-                    System.out.println(" ");
-
+                    FuncionesCombate.healthCombatDisplay(p1_className, p1_health, p2_className, p2_health);
+                    
                 }
             }
 
@@ -1016,10 +764,7 @@ public class Tema3CombatePeroConFunciones {
 
                 if (p1_health == 0 || p2_health == 0){
 
-                    if (p1_health > p2_health){
-                        System.out.println("¡Ha ganado el jugador 1!");
-
-                    } else System.out.println("¡Ha ganado la máquina!");
+                    FuncionesCombate.winCheckCOM(p1_health, p2_health);
 
                     p1_health = 0;
                     p2_health = 0;
@@ -1030,10 +775,7 @@ public class Tema3CombatePeroConFunciones {
 
                 if (p1_health == 0 || p2_health == 0){
 
-                    if (p1_health > p2_health){
-                        System.out.println("¡Ha ganado el jugador 1!");
-
-                    } else System.out.println("¡Ha ganado el jugador 2!");
+                    FuncionesCombate.winCheckPJ(p1_health, p2_health);
 
                     p1_health = 0;
                     p2_health = 0;

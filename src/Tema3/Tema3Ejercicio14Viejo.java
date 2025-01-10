@@ -35,6 +35,12 @@ public class Tema3Ejercicio14Viejo {
 
         System.out.println(Arrays.toString(board));
 
+        for (String s : board) {
+
+            System.out.println(s);
+
+        }
+
     }
 
     // Funciones --------------------------------------------------------
@@ -48,7 +54,7 @@ public class Tema3Ejercicio14Viejo {
 
         while (count > 0){
 
-            assign = roll.nextInt(0, 19);
+            assign = roll.nextInt(0, 20);
 
             if (Objects.equals(pairs[assign], " ")){
 
@@ -73,7 +79,7 @@ public class Tema3Ejercicio14Viejo {
 
         while (count > 0){
 
-            assign = roll.nextInt(0, 19);
+            assign = roll.nextInt(0, 20);
 
             if (Objects.equals(pairs[assign], " ")){
 
@@ -98,7 +104,7 @@ public class Tema3Ejercicio14Viejo {
 
         while (count > 0){
 
-            assign = roll.nextInt(0, 19);
+            assign = roll.nextInt(0, 20);
 
             if (Objects.equals(pairs[assign], " ")){
 
@@ -123,7 +129,7 @@ public class Tema3Ejercicio14Viejo {
 
         while (count > 0){
 
-            assign = roll.nextInt(0, 19);
+            assign = roll.nextInt(0, 20);
 
             if (Objects.equals(pairs[assign], " ")){
 
@@ -148,7 +154,7 @@ public class Tema3Ejercicio14Viejo {
 
         while (count > 0){
 
-            assign = roll.nextInt(0, 19);
+            assign = roll.nextInt(0, 20);
 
             if (Objects.equals(pairs[assign], " ")){
 
@@ -173,7 +179,7 @@ public class Tema3Ejercicio14Viejo {
 
         while (count > 0){
 
-            assign = roll.nextInt(0, 19);
+            assign = roll.nextInt(0, 20);
 
             if (Objects.equals(pairs[assign], " ")){
 
@@ -198,7 +204,7 @@ public class Tema3Ejercicio14Viejo {
 
         while (count > 0){
 
-            assign = roll.nextInt(0, 19);
+            assign = roll.nextInt(0, 20);
 
             if (Objects.equals(pairs[assign], " ")){
 
@@ -223,7 +229,7 @@ public class Tema3Ejercicio14Viejo {
 
         while (count > 0){
 
-            assign = roll.nextInt(0, 19);
+            assign = roll.nextInt(0, 20);
 
             if (Objects.equals(pairs[assign], " ")){
 
@@ -248,7 +254,7 @@ public class Tema3Ejercicio14Viejo {
 
         while (count > 0){
 
-            assign = roll.nextInt(0, 19);
+            assign = roll.nextInt(0, 20);
 
             if (Objects.equals(pairs[assign], " ")){
 
@@ -273,7 +279,7 @@ public class Tema3Ejercicio14Viejo {
 
         while (count > 0){
 
-            assign = roll.nextInt(0, 19);
+            assign = roll.nextInt(0, 20);
 
             if (Objects.equals(pairs[assign], " ")){
 
