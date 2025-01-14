@@ -77,25 +77,24 @@ public class Tema3Ejercicio17 {
                 if (hotel[i][j] == signal){
 
                     // Horizontal
-
-                    hotel[i - 1][j ] = signal - 1;
-                    hotel[i + 1][j ] = signal - 1;
-                    hotel[i ][j - 1] = signal - 1;
-                    hotel[i ][j + 1] = signal - 1;
+                    if (i != 0) hotel[i - 1][j ] = signal - 1;
+                    if (i != hotel.length - 1) hotel[i + 1][j ] = signal - 1;
+                    if (j != 0) hotel[i ][j - 1] = signal - 1;
+                    if (j != hotel[i].length-1) hotel[i ][j + 1] = signal - 1;
 
                     // Diagonal y extensiones laterales
 
                     if (signal > 2){
 
-                        hotel[i - 1][j - 1] = signal - 2;
-                        hotel[i + 1][j + 1] = signal - 2;
-                        hotel[i + 1][j - 1] = signal - 2;
-                        hotel[i - 1][j + 1] = signal - 2;
+                        if (i != 0) hotel[i - 1][j - 1] = signal - 2;
+                        if (i != hotel.length - 1) hotel[i + 1][j + 1] = signal - 2;
+                        if (i != 0) hotel[i + 1][j - 1] = signal - 2;
+                        if (i != hotel[i].length - 1) hotel[i - 1][j + 1] = signal - 2;
 
-                        hotel[i - 2][j ] = signal - 2;
-                        hotel[i + 2][j ] = signal - 2;
-                        hotel[i ][j - 2] = signal - 2;
-                        hotel[i ][j + 2] = signal - 2;
+                        if (i != 0) hotel[i - 2][j ] = signal - 2;
+                        if (i != 0) hotel[i + 2][j ] = signal - 2;
+                        if (j != hotel[i].length-1) hotel[i ][j - 2] = signal - 2;
+                        if (j != hotel[i].length-1) hotel[i ][j + 2] = signal - 2;
 
                     }
 
