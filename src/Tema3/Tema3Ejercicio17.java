@@ -86,14 +86,22 @@ public class Tema3Ejercicio17 {
 
                     if (signal > 2){
 
-                        if (i != 0) hotel[i - 1][j - 1] = signal - 2;
+                        //Esquina superior izquierda
+                        if (i != 0 && j != 0) hotel[i - 1][j - 1] = signal - 2;
+                        //Esquina inferior derecha
                         if (i != hotel.length - 1) hotel[i + 1][j + 1] = signal - 2;
-                        if (i != 0) hotel[i + 1][j - 1] = signal - 2;
-                        if (i != hotel[i].length - 1) hotel[i - 1][j + 1] = signal - 2;
+                        //Esquina inferior izquierda
+                        if (i != 0 && j != hotel.length) hotel[i + 1][j - 1] = signal - 2;
+                        //Esquina superior derecha
+                        if (i != hotel[i].length - 1 && i != 0) hotel[i - 1][j + 1] = signal - 2;
 
+                        //Arriba
                         if (i != 0) hotel[i - 2][j ] = signal - 2;
-                        if (i != 0) hotel[i + 2][j ] = signal - 2;
-                        if (j != hotel[i].length-1) hotel[i ][j - 2] = signal - 2;
+                        //Abajo
+                        if (i != hotel.length - 1) hotel[i + 2][j ] = signal - 2;
+                        //Izquierda
+                        if (j != 0) hotel[i ][j - 2] = signal - 2;
+                        //Derecha
                         if (j != hotel[i].length-1) hotel[i ][j + 2] = signal - 2;
 
                     }
