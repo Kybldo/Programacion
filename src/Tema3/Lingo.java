@@ -33,13 +33,13 @@ public class Lingo {
             System.out.println("Intentos: " + attempts + "/5");
             System.out.println(" ");
 
-            while (guess.length() < 5){
+            while (guess.length() != 5){
 
                 System.out.println("Introduce una palabra:");
 
                 guess = read.nextLine();
                 
-                if (guess.length() < 5){
+                if (guess.length() != 5){
 
                     System.out.println(" ");
                     System.out.println("La palabra tiene que ser de 5 letras.");
@@ -89,6 +89,9 @@ public class Lingo {
                 System.out.println("¡No la has adivinado!");
 
             }
+
+            guess = "";
+
         }
 
         read.close();

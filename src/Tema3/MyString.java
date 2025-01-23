@@ -90,6 +90,7 @@ public class MyString {
     }
 
     // d) Dice cuantas veces la segunda cadena está incluida en la primera
+    //substring()
     public static int xAppearsOnY(String string1, String string2){
 
         int counter = 0;
