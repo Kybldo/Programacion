@@ -58,7 +58,6 @@ public class MyString {
                 counter++;
 
             }
-
         }
 
         return counter;
@@ -84,7 +83,6 @@ public class MyString {
                 newString = stringArray[i];
 
             }
-
         }
 
         return newString;
@@ -198,5 +196,4 @@ public class MyString {
         System.out.println("u " + uCount + " " + frequency.repeat(uCount));
 
     }
-
 }

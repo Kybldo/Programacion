@@ -169,7 +169,6 @@ public class CaesarCipher {
                 newString.append("0");
 
             }
-
         }
 
         return newString.toString();
