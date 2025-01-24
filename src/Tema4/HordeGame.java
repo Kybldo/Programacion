@@ -44,7 +44,7 @@ public class HordeGame {
 
             System.out.println("HORDA " + horde);
 
-            // Elegir los enemigos que van a aparecer en base a un random que toma la longitud del array de enemigos
+            // Elegir los enemigos que van a aparecer utilizando un random que toma la longitud del array de enemigos
             numberOfEnemies = roll.nextInt(enemies.length);
 
             switch (numberOfEnemies){
