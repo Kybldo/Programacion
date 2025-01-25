@@ -4,8 +4,8 @@ public class HeroMain {
 
     public static void main(String[] args) {
 
-        Hero hero1 = new Hero("Marcos", 1, 100, 100, 0, 5, 5);
-        Hero hero2 = new Hero("Christian", 1, 80, 80, 0, 8, 4);
+        Hero hero1 = new Hero("Marcos", 1, 100, 100, 0, 15, 5);
+        Hero hero2 = new Hero("Christian", 1, 80, 80, 0, 20, 4);
 
         printStats(hero1, hero2);
 

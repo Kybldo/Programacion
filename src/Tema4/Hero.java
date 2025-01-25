@@ -113,7 +113,9 @@ public class Hero {
 
         System.out.println("¡" + this.name + " ataca a " + hero1.name + "!");
 
-        hero1.health -= this.attack;
+        int attackCalc = Math.max(1, this.attack - hero1.defense);
+
+        hero1.health -= attackCalc;
 
         if (hero1.health < 0) hero1.setHealth(0);
 
@@ -123,7 +125,7 @@ public class Hero {
 
         System.out.println(" ");
 
-        return hero1.name + " ha recibido " + this.attack + " puntos de daño.";
+        return hero1.name + " ha recibido " + attackCalc + " puntos de daño.";
 
     }
 

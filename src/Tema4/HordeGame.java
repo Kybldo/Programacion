@@ -12,13 +12,13 @@ public class HordeGame {
 
         // Héroe y enemigos
 
-        Hero hero = new Hero("Apolinar", 1, 100, 100, 0, 5, 5);
+        Hero hero = new Hero("Apolinar", 1, 100, 100, 0, 8, 5);
 
         Hero[] enemies = new Hero[3];
 
-        enemies[0] = new Hero("Miguelito", 1, 15, 15, 0, 2, 2);
-        enemies[1] = new Hero("Rebeca", 1, 20, 20, 0, 1, 3);
-        enemies[2] = new Hero("Albarracín", 1, 10, 10, 0, 5, 3);
+        enemies[0] = new Hero("Miguelito", 1, 15, 15, 0, 7, 5);
+        enemies[1] = new Hero("Rebeca", 1, 20, 20, 0, 10, 6);
+        enemies[2] = new Hero("Albarracín", 1, 10, 10, 0, 12, 4);
 
         // Variables
 
