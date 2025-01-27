@@ -118,7 +118,7 @@ public class HordeGame {
                         enemy0Health = enemies[0].getHealth();
                         enemy1Health = enemies[1].getHealth();
 
-                        // Ataque enemigos
+                        // Ataques enemigos
                         if (enemy0Health > 0){
 
                             System.out.println(enemies[0].attack(hero));
@@ -177,7 +177,7 @@ public class HordeGame {
                         enemy1Health = enemies[1].getHealth();
                         enemy2Health = enemies[2].getHealth();
 
-                        // Ataque enemigos
+                        // Ataques enemigos
                         if (enemy0Health > 0){
 
                             System.out.println(enemies[0].attack(hero));
