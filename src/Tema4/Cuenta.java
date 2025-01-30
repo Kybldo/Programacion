@@ -25,7 +25,7 @@ public class Cuenta {
 
     public String toString(){
 
-        return "Número de cuenta: " + this.accountNumber + " Saldo de la cuenta: " + this.balance;
+        return "Número de cuenta: " + this.accountNumber + " - Saldo de la cuenta: " + this.balance;
 
     }
 

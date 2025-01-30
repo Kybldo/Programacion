@@ -61,9 +61,9 @@ public class PersonaBanco {
 
     public void setDni(String dni) {
 
-        if (this.dni.length() != 9){
+        if (dni.length() != 9){
 
-            this.dni = "";
+            dni = "Inválido";
 
         }
 

@@ -32,7 +32,7 @@ public class Reloj {
 
     public void setHour(int hour) {
 
-        if (this.hour > 24 || this.hour < 0) {
+        if (hour > 24 || hour < 0) {
 
             this.hour = 0;
 
@@ -50,7 +50,7 @@ public class Reloj {
 
     public void setMinutes(int minutes) {
 
-        if (this.minutes < 0 || this.minutes > 59){
+        if (minutes < 0 || minutes > 59){
 
             this.minutes = 0;
 
@@ -69,7 +69,7 @@ public class Reloj {
 
     public void setSeconds(int seconds) {
 
-        if (this.seconds < 0 || this.seconds > 59){
+        if (seconds < 0 || seconds > 59){
 
             this.seconds = 0;
 
@@ -87,7 +87,7 @@ public class Reloj {
 
     public void setFormat(int format) {
 
-        if (this.format != 24){
+        if (format != 24){
 
             this.format = 12;
 
