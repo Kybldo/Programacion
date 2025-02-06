@@ -34,7 +34,8 @@ public class Ejercicio1Ampliado {
             System.out.println("1. Añadir un producto a la lista");
             System.out.println("2. Añadir un producto al carrito");
             System.out.println("3. Comprobar carrito");
-            System.out.println("4. Salir");
+            System.out.println("4. Comprobar carrito (explicación de Ana)");
+            System.out.println("5. Salir");
 
             menuChoice = read.nextInt();
 
@@ -61,7 +62,14 @@ public class Ejercicio1Ampliado {
 
                 }
 
-                case 4 -> System.out.println("Has salido del programa.");
+                case 4 -> {
+
+                    checkCartAlt(shoppingList, shoppingCart);
+                    menuChoice = 0;
+
+                }
+
+                case 5 -> System.out.println("Has salido del programa.");
 
             }
         }
@@ -195,5 +203,11 @@ public class Ejercicio1Ampliado {
             return "Objetos que faltan en el carrito: " + finalList;
 
         }
+    }
+
+    public static void checkCartAlt(Set<String> shoppingList, Set<String> shoppingCart){
+
+        shoppingList.removeAll(shoppingCart);
+
     }
 }
