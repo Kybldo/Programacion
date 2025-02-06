@@ -1,20 +1,23 @@
 package Tema5;
 
-public class Usuario {
+public class UsuarioBanco {
 
     private String name;
+    private String dni;
     private int age;
 
-    public Usuario() {
+    public UsuarioBanco() {
 
         this.name = "";
+        this.dni = "";
         this.age = 0;
 
     }
 
-    public Usuario(String name, int age) {
+    public UsuarioBanco(String name, String dni, int age) {
 
         this.name = name;
+        this.dni = dni;
         this.age = age;
 
     }
@@ -33,6 +36,14 @@ public class Usuario {
         this.name = name;
     }
 
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
     public int getAge() {
         return age;
     }
@@ -40,4 +51,5 @@ public class Usuario {
     public void setAge(int age) {
         this.age = age;
     }
+
 }

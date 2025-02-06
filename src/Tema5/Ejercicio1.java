@@ -1,9 +1,6 @@
 package Tema5;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 
 public class Ejercicio1 {
 
@@ -13,7 +10,7 @@ public class Ejercicio1 {
 
         boolean stop = false;
 
-        List<String> shoppingList = new ArrayList<>();
+        Set<String> shoppingList = new HashSet<>();
 
         int numberOfElements = 0;
 
@@ -40,7 +37,7 @@ public class Ejercicio1 {
 
     }
 
-    public static int addItem(List<String> shoppingList, int numberOfElements){
+    public static int addItem(Set<String> shoppingList, int numberOfElements){
 
         Scanner read = new Scanner(System.in);
         String itemToAdd;
