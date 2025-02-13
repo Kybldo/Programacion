@@ -110,8 +110,8 @@ public class Gimnasio {
         if (users.containsKey(dni)){
 
             System.out.println(" ");
-            System.out.println("Se ha dado de baja al usuario con el DNI: " + dni + ".");
             users.remove(dni);
+            System.out.println("Se ha dado de baja al usuario con el DNI: " + dni + ".");
 
         } else System.out.println("El DNI introducido no coincide con el de ningún usuario.");
     }

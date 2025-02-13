@@ -88,7 +88,7 @@ public class Ejercicio1Ampliado {
         System.out.println("Escribe el objeto a añadir:");
 
         itemToAdd = read.nextLine();
-
+        //creo que este if  no es necesario.
         if (numberOfElements == 0) {
 
             shoppingList.add(itemToAdd);

@@ -19,6 +19,7 @@ public class Ejercicio9 {
             System.out.println(" ");
             System.out.println("Introduce un entero positivo:");
 
+
             try{
 
                 positive = read.nextInt();

@@ -23,11 +23,12 @@ public class GatoMain {
 
         try {
 
-            cat2 = new Gato("Ab", 7);
+            cat2 = new Gato("Ab", -7);
 
         } catch (Exception ex) {
 
             System.out.println("Se han introducido incorrectamente la edad o el nombre.");
+            System.out.println(ex.getMessage());
 
         } finally {
 

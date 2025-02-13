@@ -13,12 +13,15 @@ public class Gato {
     }
 
     public Gato(String name, int age) throws Exception{
-
+        this.setName(name);
+        /*
         if (name.length() < 3){
 
             throw new Exception("El nombre no puede tener menos de tres carácteres.");
 
         } else this.name = name;
+
+         */
 
         if (age < 0){
 
@@ -58,7 +61,7 @@ public class Gato {
 
     public String toString(){
 
-        return name + ", Edad: " + age;
+        return name + " - Edad: " + age;
 
     }
 
