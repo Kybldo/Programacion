@@ -2,7 +2,7 @@ package Tema5.Figura2D;
 
 public class Rectangulo extends Figura2D{
 
-    private double sideA;
+    protected double sideA;
     private double sideB;
 
     public Rectangulo(double sideA, double sideB) {

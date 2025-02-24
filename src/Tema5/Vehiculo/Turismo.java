@@ -28,7 +28,7 @@ public class Turismo extends Vehiculo {
 
     public void setUseCase(String useCase) {
 
-        if (!Objects.equals(useCase, "profesional") || !Objects.equals(useCase, "particular")){
+        if (!Objects.equals(useCase, "profesional") && !Objects.equals(useCase, "particular")){
 
             System.out.println("Ana ayuda");
             this.useCase = "profesional";
