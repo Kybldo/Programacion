@@ -18,35 +18,35 @@ public class PublicacionFoto implements IPublicacion, IAbrirPublicacion, IReacci
     }
 
     @Override
-    public void Publish() {
+    public void publish() {
 
         System.out.println("Publicando: " + content);
 
     }
 
     @Override
-    public void Share() {
+    public void share() {
 
         System.out.println("Compartiendo: " + content);
 
     }
 
     @Override
-    public void Open() {
+    public void open() {
 
         System.out.println("Abriendo: " + content);
 
     }
 
     @Override
-    public void Comment() {
+    public void comment() {
 
         System.out.println("Reaccionando, comentando: " + comment);
 
     }
 
     @Override
-    public void ShareReact() {
+    public void shareReact() {
 
         System.out.println("Reaccionando, compartiendo: " + content);
 

@@ -10,26 +10,26 @@ public class PublicacionMain {
 
         System.out.println(" ");
 
-        texto.Publish();
-        texto.Share();
-        texto.Comment();
-        texto.ShareReact();
+        texto.publish();
+        texto.share();
+        texto.comment();
+        texto.shareReact();
 
         System.out.println(" ");
 
-        foto.Publish();
-        foto.Share();
-        foto.Open();
-        foto.Comment();
-        foto.ShareReact();
+        foto.publish();
+        foto.share();
+        foto.open();
+        foto.comment();
+        foto.shareReact();
 
         System.out.println(" ");
 
-        video.Publish();
-        video.Share();
-        video.Open();
-        video.Comment();
-        video.ShareReact();
+        video.publish();
+        video.share();
+        video.open();
+        video.comment();
+        video.shareReact();
 
     }
 

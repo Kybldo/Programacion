@@ -5,6 +5,6 @@ public interface IReaccion extends IPublicacion{
     String comment = "Interesante";
 
     public void comment();
-    public void ShareReact();
+    public void shareReact();
 
 }
