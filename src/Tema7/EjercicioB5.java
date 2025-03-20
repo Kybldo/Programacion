@@ -27,10 +27,6 @@ public class EjercicioB5 {
         }
 
         File letterFile = new File("/Users/ericm/IdeaProjects/Programacion/Diccionario/A.txt");
-        
-        BufferedWriter output = new BufferedWriter(new FileWriter(letterFile));
-
-        BufferedReader reader = new BufferedReader(new FileReader(String.valueOf(dictionaryPath)));
 
         for (char c = 'a'; c <= 'z'; c++){
 
@@ -41,6 +37,10 @@ public class EjercicioB5 {
                 String character = String.valueOf(c);
 
                 letterFile.createNewFile();
+
+                BufferedReader reader = new BufferedReader(new FileReader(String.valueOf(dictionaryPath)));
+
+                BufferedWriter output = new BufferedWriter(new FileWriter(letterFile));
 
                 while (reader.readLine() != null){
 
@@ -78,6 +78,38 @@ public class EjercicioB5 {
             }
 
         }
+
+        // PARA LA Ñ
+
+        letterFile = new File("/Users/ericm/IdeaProjects/Programacion/Diccionario/ñ.txt");
+
+        BufferedReader reader = new BufferedReader(new FileReader(String.valueOf(dictionaryPath)));
+
+        BufferedWriter output = new BufferedWriter(new FileWriter(letterFile));
+
+        while (reader.readLine() != null){
+
+            String line = reader.readLine();
+
+            if (line != null){
+
+                if (line.startsWith("ñ")){
+
+                    output.write(line);
+                    output.newLine();
+
+                }
+
+                output.flush();
+
+            }
+
+        }
+
+        System.out.println("(Y también se ha rellenado la ñ)");
+
+        reader.close();
+        output.close();
 
     }
 
