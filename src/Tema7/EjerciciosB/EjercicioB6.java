@@ -1,4 +1,4 @@
-package Tema7;
+package Tema7.EjerciciosB;
 
 import java.io.*;
 import java.nio.file.Path;
