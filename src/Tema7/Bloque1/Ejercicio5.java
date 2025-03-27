@@ -1,19 +1,24 @@
 package Tema7.Bloque1;
 
-import java.io.IOException;
+import Tema7.Bloque1.Ejercicio4.Persona;
+
+import java.io.*;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.Arrays;
+import java.nio.file.Paths;
 
 public class Ejercicio5 {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-        Path byteFilePath = Path.of("usuario.dat");
+        Persona persona;
 
-        byte[] objectBytes = Files.newInputStream(byteFilePath).readAllBytes();
+        try (ObjectInputStream ois = new ObjectInputStream(Files.newInputStream(Paths.get("usuario.dat")))) {
 
-        System.out.println(Arrays.toString(objectBytes));
+            persona = (Persona) ois.readObject();
+
+        }
+
+        System.out.println(persona);
 
     }
 

@@ -1,8 +1,9 @@
 package Tema7.Bloque1.Ejercicio4;
 
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.nio.file.Files;
-import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Main {
 
@@ -10,13 +11,12 @@ public class Main {
 
         Persona miguelito = new Persona("Miguelito", 2);
 
-        Files.newOutputStream(Path.of("usuario.dat"));
+        try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(Paths.get("usuario.dat")))) {
 
-        byte[] objectBytes = miguelito.toString().getBytes();
+            oos.writeObject(miguelito);
+            System.out.println("Copiado.");
 
-        Path byteFilePath = Path.of("usuario.dat");
-
-        Files.newOutputStream(byteFilePath).write(objectBytes);
+        }
 
     }
 

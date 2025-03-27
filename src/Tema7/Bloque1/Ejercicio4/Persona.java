@@ -14,6 +14,13 @@ public class Persona implements Serializable {
 
     }
 
+    public Persona() {
+
+        this.nombre = "";
+        this.edad = 0;
+
+    }
+
     @Override
     public String toString() {
         return this.nombre + ", " + this.edad;
