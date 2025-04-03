@@ -1,8 +1,10 @@
 package Tema7.Bloque2;
 
+import javax.swing.plaf.IconUIResource;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.*;
 import java.util.stream.Stream;
 
@@ -30,73 +32,49 @@ public class FunkosMain {
 
                 case 1 -> {
 
-                    System.out.println("_______________________________________________________________________");
-                    System.out.println("Introduce los datos del Funko a introducir en la lista:");
-                    System.out.println(" ");
-
-                    System.out.print("Código: ");
-                    String code = read.nextLine();
-
-                    System.out.print("Nombre: ");
-                    String name = read.nextLine();
-
-                    System.out.print("Modelo: ");
-                    String model = read.nextLine();
-
-                    System.out.print("Precio: ");
-                    double price = read.nextDouble();
-
-                    System.out.print("Fecha de Lanzamiento (Formato AAAA-MM-DD): ");
-                    String releaseDate = read.nextLine();
-
+                    FunkosFunciones.addFunko(read, funkoListImported);
                     menuChoice = 0;
 
                 }
 
                 case 2 -> {
 
-                    System.out.println("_______________________________________________________________________");
-                    System.out.println("b");
+                    FunkosFunciones.deleteFunko(read, funkoListImported);
                     menuChoice = 0;
 
                 }
 
                 case 3 -> {
 
-                    System.out.println("_______________________________________________________________________");
-                    System.out.println("c");
+                    FunkosFunciones.showFunkoList(funkoListImported);
                     menuChoice = 0;
 
                 }
 
                 case 4 -> {
 
-                    System.out.println("_______________________________________________________________________");
-                    System.out.println("d");
+                    FunkosFunciones.showMostExpensiveFunko(funkoListImported);
                     menuChoice = 0;
 
                 }
 
                 case 5 -> {
 
-                    System.out.println("_______________________________________________________________________");
-                    System.out.println("e");
+                    FunkosFunciones.showAverageFunkoPrice(funkoListImported);
                     menuChoice = 0;
 
                 }
 
                 case 6 -> {
 
-                    System.out.println("_______________________________________________________________________");
-                    System.out.println("f");
+                    FunkosFunciones.showFunkosPerModel(funkoListImported);
                     menuChoice = 0;
 
                 }
 
                 case 7 -> {
 
-                    System.out.println("_______________________________________________________________________");
-                    System.out.println("g");
+                    FunkosFunciones.showFunkosFrom2023(funkoListImported);
                     menuChoice = 0;
 
                 }
