@@ -1,6 +1,7 @@
 package Tema7.Bloque2;
 
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -418,6 +419,165 @@ public class FunkosFunciones {
         }
 
         System.out.println(" ");
+
+    }
+
+    // FUNCIONES SERIALIZACIÓN
+
+    public static void serializeFunkoList(ArrayList<Funko> funkoListImported) throws IOException {
+
+        try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(Paths.get("funkos.dat")))) {
+
+            oos.writeObject(funkoListImported);
+
+        }
+
+    }
+
+    // AÑADIR FUNKO + SERIALIZACIÓN
+
+    public static void addFunkoSerialization(Scanner read, ArrayList<Funko> funkoListImported) throws IOException {
+
+        System.out.println("_______________________________________________________________________");
+        System.out.println("Introduce los datos del Funko a introducir en la lista:");
+        System.out.println(" ");
+
+        String code = "";
+        String name = "";
+        String model = "";
+        double price = 0;
+        String releaseDate = "";
+
+        System.out.print("Código: ");
+
+        try {
+
+            code = read.nextLine();
+
+        } catch (Exception e) {
+
+            System.out.println(" ");
+            System.out.println("Introduce un código válido.");
+
+        }
+
+        System.out.print("Nombre: ");
+
+        try {
+
+            name = read.nextLine();
+
+        } catch (Exception e) {
+
+            System.out.println(" ");
+            System.out.println("Introduce un nombre válido.");
+
+        }
+
+        System.out.print("Modelo: ");
+
+        try {
+
+            model = read.nextLine();
+
+        } catch (Exception e) {
+
+            System.out.println(" ");
+            System.out.println("Introduce un modelo válido.");
+
+        }
+
+        System.out.print("Precio: ");
+
+        try {
+
+            price = read.nextDouble();
+
+        } catch (Exception e) {
+
+            System.out.println(" ");
+            System.out.println("Introduce un precio válido.");
+
+        } finally {
+
+            read.nextLine();
+
+        }
+
+        System.out.print("Fecha de Lanzamiento (Formato AAAA-MM-DD): ");
+
+        try {
+
+            releaseDate = read.nextLine();
+
+        } catch (Exception e) {
+
+            System.out.println(" ");
+            System.out.println("Introduce un precio válido.");
+
+        }
+
+        String lineToWrite = "\n" + code + "," + name + "," + model + "," + price + "," + releaseDate;
+
+        Funko funko = new Funko(code, name, model, price, releaseDate);
+
+        funkoListImported.add(funko);
+
+        serializeFunkoList(funkoListImported);
+
+        System.out.println(" ");
+
+    }
+
+    // ELIMINAR FUNKO + SERIALIZACIÓN
+
+    public static void deleteFunkoSerialization(Scanner read, ArrayList<Funko> funkoListImported) throws IOException {
+
+        System.out.println("_______________________________________________________________________");
+        System.out.println("Introduce el nombre del Funko que quieres eliminar de la lista:");
+        System.out.println(" ");
+
+        String name = "";
+
+        try {
+
+            name = read.nextLine();
+
+        } catch (Exception e){
+
+            System.out.println("Introduce un nombre válido.");
+
+        }
+
+        int counter = 0;
+        int funkoToRemove = -1;
+
+        for (int i = 0; i < funkoListImported.size(); i++){
+
+            if (Objects.equals(funkoListImported.get(i).getName().toLowerCase(), name.toLowerCase())){
+
+                funkoToRemove = counter;
+
+            }
+
+            counter++;
+
+        }
+
+        if (funkoToRemove != -1){
+
+            funkoListImported.remove(funkoToRemove);
+            System.out.println(" ");
+            System.out.println("Se ha eliminado el Funko de nombre " + name + ".");
+
+        } else {
+
+            System.out.println(" ");
+            System.out.println("No se ha encontrado ningún Funko con el nombre " + name + ".");
+
+        }
+
+        serializeFunkoList(funkoListImported);
 
     }
 

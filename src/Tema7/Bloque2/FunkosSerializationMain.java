@@ -1,14 +1,20 @@
 package Tema7.Bloque2;
 
-import java.util.*;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
-public class FunkosMain {
+public class FunkosSerializationMain {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         // IMPORTAR CSV
 
         ArrayList<Funko> funkoListImported = FunkosFunciones.importCSV();
+
+        // SERIALIZAR FUNKOS
+
+        FunkosFunciones.serializeFunkoList(funkoListImported);
 
         // MENÚ
 
@@ -26,14 +32,14 @@ public class FunkosMain {
 
                 case 1 -> {
 
-                    FunkosFunciones.addFunko(read, funkoListImported);
+                    FunkosFunciones.addFunkoSerialization(read, funkoListImported);
                     menuChoice = 0;
 
                 }
 
                 case 2 -> {
 
-                    FunkosFunciones.deleteFunko(read, funkoListImported);
+                    FunkosFunciones.deleteFunkoSerialization(read, funkoListImported);
                     menuChoice = 0;
 
                 }
