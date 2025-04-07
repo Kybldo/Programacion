@@ -51,14 +51,14 @@ public class Main {
 
                 case 5 -> {
 
-                    System.out.println("e");
+                    Funciones.deleteFromRanking(gameList, read);
                     menuChoice = 0;
 
                 }
 
                 case 6 -> {
 
-                    System.out.println("f");
+                    Funciones.exportToText(gameList);
                     menuChoice = 0;
 
                 }
@@ -68,6 +68,8 @@ public class Main {
             }
 
         }
+
+        read.close();
 
     }
 

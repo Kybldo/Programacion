@@ -28,7 +28,7 @@ public class VideojuegoDigital extends Videojuego{
 
     @Override
     public String toString() {
-        return super.toString() + ", Tienda (Online): " + this.onlineStore + ", Tamaño: " + this.sizeGB + "GB.";
+        return super.toString() + " - Tienda (Online): " + this.onlineStore + " - Tamaño: " + this.sizeGB + " GB.";
     }
 
     public String getOnlineStore() {

@@ -2,7 +2,7 @@ package Tema7.Bloque3;
 
 import java.io.Serializable;
 
-abstract class Videojuego implements Serializable {
+public abstract class Videojuego implements Serializable {
 
     private String title;
     private String platform;
@@ -24,7 +24,7 @@ abstract class Videojuego implements Serializable {
 
     @Override
     public String toString() {
-        return "Título: " + this.title + ", Plataforma: " + this.platform + ", Nota: " + this.rating;
+        return "Título: " + this.title + " - Plataforma: " + this.platform + " - Nota: " + this.rating;
     }
 
     public String getTitle() {

@@ -1,16 +1,14 @@
 package Tema7.Bloque3;
 
-import jdk.dynalink.StandardOperation;
+import Tema7.Bloque3.Excepciones.JuegoNoEncontradoException;
+import Tema7.Bloque3.Excepciones.NotaInvalidaException;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Funciones {
@@ -46,9 +44,10 @@ public class Funciones {
 
             }
 
-        } catch (IOException ioe) {
+        } catch (IOException e) {
 
-            ioe.printStackTrace();
+            System.out.println(" ");
+            System.out.println("Se ha producido un error durante la creación de los ficheros.");
 
         }
 
@@ -128,7 +127,7 @@ public class Funciones {
 
     // AÑADIR VIDEOJUEGO FÍSICO
 
-    public static void addPhysical(Scanner read, ArrayList<Videojuego> gameList) throws IOException {
+    public static void addPhysical(Scanner read, ArrayList<Videojuego> gameList) {
 
         System.out.println(" ");
 
@@ -146,6 +145,12 @@ public class Funciones {
             int rating = read.nextInt();
             read.nextLine();
 
+            if (rating < 1 || rating > 10){
+
+                throw new NotaInvalidaException();
+
+            }
+
             System.out.print("Tienda (Física): ");
             String store = read.nextLine();
 
@@ -154,10 +159,17 @@ public class Funciones {
 
             game = new VideojuegoFisico(title, platform, rating, store, status);
 
-        } catch (Exception e) {
+        } catch (NotaInvalidaException e) {
 
             System.out.println(" ");
-            System.out.println("Algo ha fallado en el proceso de introducción de datos. Inténtalo de nuevo.");
+            System.out.println("La nota a introducir debe estar entre el 1 y el 10.");
+            System.out.println("Pulsa Enter para continuar.");
+            read.nextLine();
+
+        } catch (InputMismatchException e){
+
+            System.out.println(" ");
+            System.out.println("El tipo de dato introducido no es correcto.");
             read.nextLine();
 
         } finally {
@@ -168,31 +180,6 @@ public class Funciones {
 
                 gameList.add(game);
 
-                // AÑADIR JUEGO AL TXT
-
-                Files.write(Paths.get("ranking.txt"), "".getBytes());
-
-                for (Videojuego games : gameList) {
-
-                    String gameInfo = "\n" + games;
-
-                    Files.write(Paths.get("ranking.txt"), gameInfo.getBytes(), StandardOpenOption.APPEND);
-
-                }
-
-                // VOLCAR COLECCIÓN AL DAT
-
-                try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(Paths.get("ranking.dat")))) {
-
-                    for (Videojuego games : gameList) {
-
-                        oos.writeObject(gameList);
-                        oos.writeObject("\n");
-
-                    }
-
-                }
-
             }
 
         }
@@ -201,7 +188,7 @@ public class Funciones {
 
     // AÑADIR VIDEOJUEGO DIGITAL
 
-    public static void addDigital(Scanner read, ArrayList<Videojuego> gameList) throws IOException {
+    public static void addDigital(Scanner read, ArrayList<Videojuego> gameList) {
 
         System.out.println(" ");
 
@@ -218,6 +205,12 @@ public class Funciones {
             System.out.print("Nota: ");
             int rating = read.nextInt();
             read.nextLine();
+
+            if (rating < 1 || rating > 10){
+
+                throw new NotaInvalidaException();
+
+            }
 
             System.out.print("Tienda (Online): ");
             String store = read.nextLine();
@@ -228,10 +221,17 @@ public class Funciones {
 
             game = new VideojuegoDigital(title, platform, rating, store, size);
 
-        } catch (Exception e) {
+        } catch (NotaInvalidaException e) {
 
             System.out.println(" ");
-            System.out.println("Algo ha fallado en el proceso de introducción de datos. Inténtalo de nuevo.");
+            System.out.println("La nota a introducir debe estar entre el 1 y el 10.");
+            System.out.println("Pulsa Enter para continuar.");
+            read.nextLine();
+
+        } catch (InputMismatchException e){
+
+            System.out.println(" ");
+            System.out.println("El tipo de dato introducido no es correcto.");
             read.nextLine();
 
         } finally {
@@ -242,26 +242,6 @@ public class Funciones {
 
                 gameList.add(game);
 
-                // AÑADIR JUEGO AL TXT
-
-                Files.write(Paths.get("ranking.txt"), "".getBytes());
-
-                for (Videojuego games : gameList) {
-
-                    String gameInfo = "\n" + games;
-
-                    Files.write(Paths.get("ranking.txt"), gameInfo.getBytes(), StandardOpenOption.APPEND);
-
-                }
-
-                // VOLCAR COLECCIÓN AL DAT
-
-                try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(Paths.get("ranking.dat")))) {
-
-                    oos.writeObject(gameList);
-
-                }
-
             }
 
         }
@@ -270,7 +250,7 @@ public class Funciones {
 
     // AÑADIR VIDEOJUEGO
 
-    public static void addVideogame(Scanner read, ArrayList<Videojuego> gameList) throws IOException {
+    public static void addVideogame(Scanner read, ArrayList<Videojuego> gameList) {
 
         int menuChoice = 0;
 
@@ -345,18 +325,6 @@ public class Funciones {
 
     public static void saveRanking(ArrayList<Videojuego> gameList) throws IOException {
 
-        // AÑADIR JUEGO AL TXT
-
-        Files.write(Paths.get("ranking.txt"), "".getBytes());
-
-        for (Videojuego games : gameList) {
-
-            String gameInfo = "\n" + games;
-
-            Files.write(Paths.get("ranking.txt"), gameInfo.getBytes(), StandardOpenOption.APPEND);
-
-        }
-
         // VOLCAR COLECCIÓN AL DAT
 
         try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(Paths.get("ranking.dat")))) {
@@ -366,7 +334,7 @@ public class Funciones {
         }
 
         System.out.println(" ");
-        System.out.println("Se ha guardado el ranking con éxito en los ficheros correspondientes.");
+        System.out.println("Se ha guardado el ranking con éxito en el fichero correspondiente (ranking.dat).");
 
     }
 
@@ -374,12 +342,119 @@ public class Funciones {
 
     public static ArrayList<Videojuego> loadRanking(ArrayList<Videojuego> gameList) {
 
+        boolean warning = false;
+
+        if (!gameList.isEmpty()) warning = true;
+
         gameList = Funciones.importDatToArrayList();
 
         System.out.println(" ");
-        System.out.println("Se ha cargado el ranking (archivo .dat) en el programa (colección).");
+        System.out.println("Se ha cargado el ranking (ranking.dat) en el programa (colección).");
+
+        if (warning){
+
+            System.out.println(" ");
+            System.out.println("Importar el archivo ha sobreescrito los videojuegos que habías añadido a la lista.");
+
+        }
 
         return gameList;
+
+    }
+
+    // ELIMINAR VIDEOJUEGO DEL RANKING
+
+    public static void deleteFromRanking(ArrayList<Videojuego> gameList, Scanner read){
+
+        read.nextLine();
+
+        System.out.println(" ");
+
+        if (gameList.isEmpty()){
+
+            System.out.println("El ranking está vacío o no se ha importado.");
+
+        } else {
+
+            System.out.println("Introduce el título del juego a eliminar:");
+
+            String userName = "";
+            int counter = 0;
+            int gameToDelete = 0;
+            boolean canDelete = false;
+
+            try {
+
+                userName = read.nextLine();
+
+            } catch (Exception e){
+
+                System.out.println("El nombre que has introducido no es correcto.");
+
+            }
+
+            try {
+
+                for (Videojuego game : gameList){
+
+                    if (userName.equalsIgnoreCase(game.getTitle())){
+
+                        gameToDelete = counter;
+                        canDelete = true;
+
+                    }
+
+                    counter++;
+
+                }
+
+                if (canDelete){
+
+                    gameList.remove(gameToDelete);
+
+                    System.out.println(" ");
+                    System.out.println("Se ha eliminado el videojuego " + "\"" +  userName + "\"" + " del ranking.");
+
+                } else throw new JuegoNoEncontradoException();
+
+            } catch (JuegoNoEncontradoException e) {
+
+                System.out.println(" ");
+                System.out.println("El videojuego que has introducido no existe en el ranking.");
+
+            }
+
+        }
+
+    }
+
+    // EXPORTAR COLECCIÓN DE JUEGOS A TXT
+
+    public static void exportToText(ArrayList<Videojuego> gameList) throws IOException {
+
+        // AÑADIR JUEGO AL TXT
+
+        try {
+
+            Files.write(Paths.get("ranking.txt"), "".getBytes());
+
+            for (Videojuego games : gameList) {
+
+                String gameInfo = "\n" + games;
+
+                Files.write(Paths.get("ranking.txt"), gameInfo.getBytes(), StandardOpenOption.APPEND);
+
+            }
+
+            System.out.println(" ");
+            System.out.println("El ranking ha sido exportado a un fichero de texto (ranking.txt).");
+
+        } catch (FileNotFoundException e){
+
+            System.out.println(" ");
+            System.out.println("El archivo no ha sido encontrado.");
+
+        }
 
     }
 

@@ -8,6 +8,17 @@ public class VideojuegoFisico extends Videojuego{
     public VideojuegoFisico(String title, String platform, int rating, String physicalStore, String status) {
         super(title, platform, rating);
         this.physicalStore = physicalStore;
+
+        if (!status.equalsIgnoreCase("nuevo") && !status.equalsIgnoreCase("usado")) {
+
+            status = "Nuevo";
+
+        } else if (status.equalsIgnoreCase("nuevo")) {
+
+            status = "Nuevo";
+
+        } else status = "Usado";
+
         this.status = status;
     }
 
@@ -23,7 +34,7 @@ public class VideojuegoFisico extends Videojuego{
 
     @Override
     public String toString() {
-        return super.toString() + ", Tienda (Física): " + this.physicalStore + ", Estado: " + this.status + ".";
+        return super.toString() + " - Tienda (Física): " + this.physicalStore + " - Estado: " + this.status + ".";
     }
 
     public String getPhysicalStore() {
