@@ -65,7 +65,7 @@ public class Funciones {
 
         } catch (Exception e) {
 
-            System.out.println("No se ha podido deserializar el fichero. (Aún no había sido creado)");
+            System.out.println("No se ha podido deserializar el fichero. (Está vacío o todavía no ha sido creado)");
 
         }
 
@@ -147,7 +147,7 @@ public class Funciones {
 
             if (rating < 1 || rating > 10){
 
-                throw new NotaInvalidaException();
+                throw new NotaInvalidaException("La nota a introducir debe estar entre el 1 y el 10." );
 
             }
 
@@ -162,7 +162,7 @@ public class Funciones {
         } catch (NotaInvalidaException e) {
 
             System.out.println(" ");
-            System.out.println("La nota a introducir debe estar entre el 1 y el 10.");
+            System.out.println(e.getMessage());
             System.out.println("Pulsa Enter para continuar.");
             read.nextLine();
 
@@ -208,7 +208,7 @@ public class Funciones {
 
             if (rating < 1 || rating > 10){
 
-                throw new NotaInvalidaException();
+                throw new NotaInvalidaException("La nota a introducir debe estar entre el 1 y el 10.");
 
             }
 
@@ -224,7 +224,7 @@ public class Funciones {
         } catch (NotaInvalidaException e) {
 
             System.out.println(" ");
-            System.out.println("La nota a introducir debe estar entre el 1 y el 10.");
+            System.out.println(e.getMessage());
             System.out.println("Pulsa Enter para continuar.");
             read.nextLine();
 
@@ -353,7 +353,6 @@ public class Funciones {
 
         if (warning){
 
-            System.out.println(" ");
             System.out.println("Importar el archivo ha sobreescrito los videojuegos que habías añadido a la lista.");
 
         }
@@ -415,12 +414,12 @@ public class Funciones {
                     System.out.println(" ");
                     System.out.println("Se ha eliminado el videojuego " + "\"" +  userName + "\"" + " del ranking.");
 
-                } else throw new JuegoNoEncontradoException();
+                } else throw new JuegoNoEncontradoException("El videojuego que has introducido no existe en el ranking.");
 
             } catch (JuegoNoEncontradoException e) {
 
                 System.out.println(" ");
-                System.out.println("El videojuego que has introducido no existe en el ranking.");
+                System.out.println(e.getMessage());
 
             }
 
