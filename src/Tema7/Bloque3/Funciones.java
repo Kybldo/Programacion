@@ -8,6 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -88,7 +89,8 @@ public class Funciones {
         System.out.println("4. Cargar ranking");
         System.out.println("5. Eliminar videojuego");
         System.out.println("6. Exportar a texto");
-        System.out.println("7. Salir");
+        System.out.println("7. Ordenar ranking por nota");
+        System.out.println("8. Salir");
         System.out.println(" ");
 
     }
@@ -111,7 +113,7 @@ public class Funciones {
 
         } finally {
 
-            if (menuChoice < 0 || menuChoice > 7){
+            if (menuChoice < 0 || menuChoice > 8){
 
                 System.out.println(" ");
                 System.out.println("Selecciona una opción válida.");
@@ -452,6 +454,32 @@ public class Funciones {
 
             System.out.println(" ");
             System.out.println("El archivo no ha sido encontrado.");
+
+        }
+
+    }
+
+    // ORDENAR RANKING
+
+    public static void orderRanking(ArrayList<Videojuego> gameList){
+
+        System.out.println(" ");
+
+        if (gameList.isEmpty()){
+
+            System.out.println("El ranking está vacío, no hay nada que ordenar.");
+
+        } else {
+
+            gameList.sort(new Comparator<Videojuego>() {
+                @Override
+                public int compare(Videojuego o1, Videojuego o2) {
+                    return Integer.compare(o2.getRating(), o1.getRating());
+                }
+            });
+
+            System.out.println(" ");
+            System.out.println("El ranking ha sido ordenado por nota descendente (de 10 a 1).");
 
         }
 

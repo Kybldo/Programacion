@@ -63,7 +63,14 @@ public class Main {
 
                 }
 
-                case 7 -> System.out.println("Has salido del programa.");
+                case 7 -> {
+
+                    Funciones.orderRanking(gameList);
+                    menuChoice = 0;
+
+                }
+
+                case 8 -> System.out.println("Has salido del programa.");
 
             }
 
