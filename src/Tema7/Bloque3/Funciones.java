@@ -20,6 +20,7 @@ public class Funciones {
 
         File fileTxt = new File("ranking.txt");
         File fileDat = new File("ranking.dat");
+        File fileLog = new File("errores.log");
 
         try {
 
@@ -36,6 +37,16 @@ public class Funciones {
             }
 
             if (fileDat.createNewFile()){
+
+                System.out.println("Se ha creado el fichero DAT necesario para el programa.");
+
+            } else {
+
+                System.out.println("Se ha localizado el fichero DAT.");
+
+            }
+
+            if (fileLog.createNewFile()){
 
                 System.out.println("Se ha creado el fichero DAT necesario para el programa.");
 
