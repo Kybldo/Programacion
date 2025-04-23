@@ -42,7 +42,7 @@ public class Hero {
 
     }
 
-    // Funciones
+    // Operaciones
 
     public String toString(){
 

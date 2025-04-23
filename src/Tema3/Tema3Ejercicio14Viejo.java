@@ -43,7 +43,7 @@ public class Tema3Ejercicio14Viejo {
 
     }
 
-    // Funciones --------------------------------------------------------
+    // Operaciones --------------------------------------------------------
 
     public static String[] assignA(String[] pairs){
 

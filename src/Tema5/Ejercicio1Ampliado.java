@@ -75,7 +75,7 @@ public class Ejercicio1Ampliado {
         }
     }
 
-    // Funciones -------------------------------------------------------------------------------------------------------
+    // Operaciones -------------------------------------------------------------------------------------------------------
 
     public static int addItemToList(Set<String> shoppingList, int numberOfElements){
 
