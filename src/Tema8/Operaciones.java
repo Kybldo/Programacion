@@ -3,6 +3,7 @@ package Tema8;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.*;
 import java.util.*;
@@ -16,7 +17,7 @@ public class Operaciones {
         Properties properties = new Properties();
         String[] credentials = new String[3];
 
-        try (InputStream input = Files.newInputStream(Paths.get("db.properties.txt"))) {
+        try (InputStream input = Files.newInputStream(Path.of("C:\\Users\\ericm\\Desktop\\db.properties.txt"))) {
 
             properties.load(input);
 
