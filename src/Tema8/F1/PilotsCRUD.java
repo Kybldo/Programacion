@@ -534,12 +534,12 @@ public class PilotsCRUD {
 
         String[] credentials = PilotsCRUD.loadDatabaseProperties();
         String sentenciaSQL = """
-                SELECT constructors.name AS nombre, SUM(results.points) AS points\s
+                SELECT constructors.name AS nombre, SUM(results.points) AS puntos\s
                 FROM results\s
                 JOIN drivers ON results.driverid = drivers.driverid\s
                 JOIN constructors ON drivers.constructorid = constructors.constructorid\s
                 GROUP BY constructors.name\s
-                ORDER BY points DESC""";
+                ORDER BY puntos DESC""";
 
         System.out.println(" ");
         System.out.println("Clasificación mundial de equipos, ordenada por puntos:");
@@ -553,9 +553,9 @@ public class PilotsCRUD {
             while(resultados.next()){
 
                 String nombre = resultados.getString("nombre");
-                int points = resultados.getInt("points");
+                int puntos = resultados.getInt("puntos");
 
-                System.out.println(nombre + " - " + points);
+                System.out.println(nombre + " - " + puntos);
 
             }
 
