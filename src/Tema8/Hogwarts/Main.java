@@ -1,4 +1,4 @@
-package Tema8;
+package Tema8.Hogwarts;
 
 import java.util.Scanner;
 
@@ -32,7 +32,7 @@ public class Main {
 //            throw new RuntimeException(e);
 //        }
 
-//        Operaciones.listadoAsignaturas();
+        Operaciones.listadoAsignaturas();
 
 //        Operaciones.consultarEstudiantesCasa(read);
 
