@@ -130,7 +130,10 @@ public class PilotsCRUD {
             }
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+
+            System.out.println(" ");
+            System.out.println("Ha ocurrido un error durante la inserción a la base de datos. Revisa que el formato sea correcto.");
+
         }
 
     }
@@ -211,7 +214,8 @@ public class PilotsCRUD {
 
                 } catch (SQLException e) {
 
-                    throw new RuntimeException(e);
+                    System.out.println(" ");
+                    System.out.println("Ha ocurrido un error durante la inserción a la base de datos. Revisa que el formato sea correcto.");
 
                 }
 
@@ -389,9 +393,10 @@ public class PilotsCRUD {
                         System.out.println(" ");
                         System.out.println(rowsAffected + " fila(s) insertada(s) correctamente.");
 
-                    } catch (SQLException e) {
+                    } catch (Exception e) {
 
-                        throw new RuntimeException(e);
+                        System.out.println(" ");
+                        System.out.println("Ha ocurrido un error durante la inserción a la base de datos. Revisa que el formato sea correcto.");
 
                     }
 
@@ -470,7 +475,8 @@ public class PilotsCRUD {
 
                     } catch (SQLException e) {
 
-                        throw new RuntimeException(e);
+                        System.out.println(" ");
+                        System.out.println("Ha ocurrido un error durante la inserción a la base de datos. Revisa que el formato sea correcto.");
 
                     }
 
@@ -522,7 +528,8 @@ public class PilotsCRUD {
 
         } catch (SQLException e) {
 
-            throw new RuntimeException(e);
+            System.out.println(" ");
+            System.out.println("Ha ocurrido un error durante la inserción a la base de datos. Revisa que el formato sea correcto.");
 
         }
 
@@ -561,7 +568,8 @@ public class PilotsCRUD {
 
         } catch (SQLException e) {
 
-            throw new RuntimeException(e);
+            System.out.println(" ");
+            System.out.println("Ha ocurrido un error durante la inserción a la base de datos. Revisa que el formato sea correcto.");
 
         }
 
